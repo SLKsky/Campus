@@ -37,9 +37,10 @@ public class Apprenants {
 
 	@Override
 	public String toString() {
-		return   "\n----------------------------- \n" +	nom + "\n" +  prenom + "\n" +date  + "\n" + contact
-				+  "\n" + contact1 + "\n" + nom_entreprise 
-				+  "\n" + date_inscription  + "\n" + typeContrat + "\n" + salaire + "\n-----------------------------\n";
+		return   "\n----------------------------- \n"+ "nom de famille de l'apprenant :" +	nom + "\n" + "Prénom de l'apprenant :"+ prenom + "\n"
+				+ "\n"+ "Contacte en cas d'urgence " + contact
+				+  "\n" + "Contact en cas d'urgence n2 : "+  contact1 + "\n" +"Nom de l'entreprise : "+ nom_entreprise 
+				+  "\n" +"Date d'inscription : "+ date_inscription  + "\n"+"Type de contrat :" + typeContrat + "\n"+ "Montant du salaire :" + salaire +"€" +"\n-----------------------------\n";
 	}
 
 
