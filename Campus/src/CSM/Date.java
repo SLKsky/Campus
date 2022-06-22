@@ -8,10 +8,13 @@ public class Date {
 	int heures;
 	int min;
 	
-	
-	Date(int year, int month, int day,  int hrs, int min)
-	{
-		
+ public Date(int annee, int mois, int jour, int heures, int min) {
+		super();
+		this.annee = annee;
+		this.mois = mois;
+		this.jour = jour;
+		this.heures = heures;
+		this.min = min;
 	}
 
 
@@ -71,9 +74,5 @@ public class Date {
 	}
 
 
-	public Date() {
-		super();
-		// TODO Auto-generated constructor stub
-	}	
 	
 }
