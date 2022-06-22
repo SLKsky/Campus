@@ -181,10 +181,11 @@ public class fenetre extends JFrame implements ActionListener{
 		if (((JMenuItem)e.getSource()).getText().equals("ADD"))
 		{
 			visibleaddall();
-			if (((JButton)e.getSource()).getText().equals("Promotion"))
-			{
-				visiblepopup();
-			}
+			
+		}
+		else if (((JButton)e.getSource()).getText().equals("Promotion"))
+		{
+			System.out.println("test");
 		}
 	}
 
