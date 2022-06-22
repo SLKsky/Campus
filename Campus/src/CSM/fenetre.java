@@ -1,40 +1,10 @@
 package CSM;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.EventObject;
 
+import java.awt.event.*;
+import java.util.*;
 import javax.swing.*;
-import javax.swing.JLabel;
-import javax.swing.JToolBar;
-import java.awt.BorderLayout;
-
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.JMenuBar;
-import java.awt.Color;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import java.awt.Window;
-
-import javax.swing.JTextPane;
-import javax.swing.JSpinner;
-import javax.swing.JScrollBar;
-import javax.swing.JCheckBox;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JDialog;
-
-import java.awt.Button;
-import javax.swing.JPopupMenu;
-import java.awt.Component;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
+import java.awt.*;
 
 public class fenetre extends JFrame implements ActionListener{
 
@@ -49,7 +19,7 @@ public class fenetre extends JFrame implements ActionListener{
 	private JTextField txtMail;
 	private JButton button;
 	private JButton btnNewButton;
-	private JRadioButton chckbxNewCheckBox;
+	// private JRadioButton chckbxNewCheckBox;
 
 	/**
 	 * Launch the application.
@@ -213,55 +183,58 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void visiblepopup()
 	{
-		JFrame jFrame = new JFrame();
+		JFrame jFrame = new JFrame("Choisir la promo");
 
-		JDialog jd = new JDialog(jFrame);
 
-		jd.setLayout(new FlowLayout());
+		jFrame.setBounds(500, 300, 400, 150);
 
-		jd.setBounds(500, 300, 400, 300);
-
+		JPanel panel = new JPanel();
+		JPanel panelLabel = new JPanel();
 		JLabel jLabel = new JLabel("Press close button to close the dialog.");
+		panelLabel.add(jLabel);
 		ButtonGroup bg = new ButtonGroup();
 
-		chckbxNewCheckBox = new JRadioButton("JAVA");
+
 		JRadioButton j = new JRadioButton("JAVA");
-		jd.add(j);
+		panel.add(j);
 		bg.add(j);
 
 
-		chckbxNewCheckBox = new JRadioButton("PHP");
 		JRadioButton p = new JRadioButton("PHP");
-		jd.add(p);
+		panel.add(p);
 		bg.add(p);
 
-		chckbxNewCheckBox = new JRadioButton("C");
+
 		JRadioButton c = new JRadioButton("C");
-		jd.add(c);
+		panel.add(c);
 		bg.add(c);
 
-		chckbxNewCheckBox = new JRadioButton("SQL");
+
 		JRadioButton s = new JRadioButton("SQL");
-		jd.add(s);
+		panel.add(s);
 		bg.add(s);
 
-		chckbxNewCheckBox = new JRadioButton("PYTHON");
+
 		JRadioButton py = new JRadioButton("PYTHON");
-		jd.add(py);
+		panel.add(py);
 		bg.add(py);
 
+		JButton valide = new JButton("Valider");
 
-		//TODO//
-		//	        jButton.addActionListener(new ActionListener() {
-		//	            @Override
-		//	            public void actionPerformed(ActionEvent e) {
-		//	                jd.setVisible(false);
-		//	            }
-		//	        });
+		jFrame.getContentPane().add(BorderLayout.NORTH,panel);
+		jFrame.getContentPane().add(BorderLayout.CENTER,panelLabel);
+		jFrame.getContentPane().add(BorderLayout.SOUTH,valide);
 
-		jd.add(jLabel);
-		jd.setVisible(true);
-		jFrame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
+		jFrame.setVisible(true);
+		
+		valide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//call another method in the same class which will close this Jframe
+				jFrame.dispose();
+			}
+		});
+		
+
 	}
-
+	
 }
