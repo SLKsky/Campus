@@ -8,6 +8,8 @@ import java.util.EventObject;
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
 import java.awt.BorderLayout;
+
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
@@ -178,14 +180,14 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void visibleadd(EventObject e)
 	{
-		if (((JMenuItem)e.getSource()).getText().equals("ADD"))
+		if (((AbstractButton)e.getSource()).getText().equals("ADD"))
 		{
 			visibleaddall();
 			
 		}
-		else if (((JButton)e.getSource()).getText().equals("Promotion"))
+		else if (((AbstractButton)e.getSource()).getText().equals("Promotion"))
 		{
-			System.out.println("test");
+			visiblepopup();
 		}
 	}
 
