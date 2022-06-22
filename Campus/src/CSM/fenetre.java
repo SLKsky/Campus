@@ -78,7 +78,7 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void setVisible(boolean b) {
 		// TODO Auto-generated method stub
-		
+		//
 	}
 
 	@Override
