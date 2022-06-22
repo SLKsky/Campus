@@ -7,8 +7,8 @@ public class Apprenants {
 	String nom;
 	String prenom;
 	String date;
-	String contact;
-	String contact1;
+	String telephone;
+	String mail;
 	String nom_entreprise;
 	String date_inscription;
 	String typeContrat;
@@ -23,8 +23,8 @@ public class Apprenants {
 		super();
 		this.nom = Scan.scanString("Renseignez le Nom de l'Apprenant : ");
 		this.prenom =   Scan.scanString("Renseignez le Prénom : ");
-		this.contact =  Scan.scanString("Renseignez la 1ère personne de confiance : ");
-		this.contact1 =  Scan.scanString("Renseignez la 2ème personne de confiance : ");
+		this.telephone =  Scan.scanString("Renseignez un numero de telephone : ");
+		this.mail =  Scan.scanString("Renseignez une adrese mail : ");
 		this.nom_entreprise =  Scan.scanString("Renseignez l'Entreprise : ");
 		this.date_inscription =  Scan.scanString("Renseignez la Date d'inscription : ");
 		this.typeContrat = Scan.scanString("Renseignez le type le contrat : [ Apprenant ou Stagaire ] ");
@@ -38,8 +38,8 @@ public class Apprenants {
 	@Override
 	public String toString() {
 		return   "\n----------------------------- \n"+ "nom de famille de l'apprenant :" +	nom + "\n" + "Prénom de l'apprenant :"+ prenom + "\n"
-				+ "\n"+ "Contacte en cas d'urgence " + contact
-				+  "\n" + "Contact en cas d'urgence n2 : "+  contact1 + "\n" +"Nom de l'entreprise : "+ nom_entreprise 
+				+ "\n"+ "Contacte en cas d'urgence " + telephone
+				+  "\n" + "Contact en cas d'urgence n2 : "+  mail + "\n" +"Nom de l'entreprise : "+ nom_entreprise 
 				+  "\n" +"Date d'inscription : "+ date_inscription  + "\n"+"Type de contrat :" + typeContrat + "\n"+ "Montant du salaire :" + salaire +"€" +"\n-----------------------------\n";
 	}
 
@@ -81,25 +81,25 @@ public class Apprenants {
 
 
 	public String getContact() {
-		return contact;
+		return telephone;
 	}
 
 
 
 	public void setContact(String contact) {
-		this.contact = contact;
+		this.telephone = contact;
 	}
 
 
 
 	public String getContact1() {
-		return contact1;
+		return mail;
 	}
 
 
 
 	public void setContact1(String contact1) {
-		this.contact1 = contact1;
+		this.mail = contact1;
 	}
 
 
