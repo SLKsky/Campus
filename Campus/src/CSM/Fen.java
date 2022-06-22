@@ -19,7 +19,7 @@ public class Fen extends JFrame implements ActionListener{
 
 	private static final long serialVersionUID = 4648172894076113183L;
 	
-	private TextField btnnom;
+	private JButton btnnom;
 
 
 	//fonction Jfram
@@ -73,7 +73,7 @@ public class Fen extends JFrame implements ActionListener{
 		contentpane.add(btnpython);
 		
 		//button qui sont cacher 
-		btnnom = new TextField("Nom");
+		btnnom = new JButton("Nom");
 		contentpane.add(btnnom);
 		btnnom.setVisible(false);
 		
@@ -89,7 +89,7 @@ public class Fen extends JFrame implements ActionListener{
 		actionperf(e, btnnom);
 	}
 	
-	public void actionperf(ActionEvent e , TextField btnnom)
+	public void actionperf(ActionEvent e , JButton btnnom)
 	{
 		if (((JButton)e.getSource()).getText().equals("Ajout"))
 		{
