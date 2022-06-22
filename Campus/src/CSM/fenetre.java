@@ -154,7 +154,7 @@ public class fenetre extends JFrame implements ActionListener{
 		frame.getContentPane().add(txtTlphone);
 		txtTlphone.setColumns(10);
 		txtTlphone.setVisible(false);
-//
+
 		txtMail = new JTextField();
 		txtMail.setText("Mail");
 		frame.getContentPane().add(txtMail);
@@ -250,7 +250,8 @@ public class fenetre extends JFrame implements ActionListener{
 		jd.add(py);
 		bg.add(py);
 
-		//TODO
+
+		//TODO//
 		//	        jButton.addActionListener(new ActionListener() {
 		//	            @Override
 		//	            public void actionPerformed(ActionEvent e) {
