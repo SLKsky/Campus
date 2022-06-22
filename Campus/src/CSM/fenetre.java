@@ -1,27 +1,9 @@
 package CSM;
 
-import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
 
-import javax.swing.JFrame;
-import javax.swing.JToolBar;
-import java.awt.BorderLayout;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
-import javax.swing.JMenuBar;
-import java.awt.Color;
-import javax.swing.JMenuItem;
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
-import javax.swing.JTextPane;
-import javax.swing.JSpinner;
-import javax.swing.JScrollBar;
-import javax.swing.JCheckBox;
-import javax.swing.JCheckBoxMenuItem;
-import java.awt.Button;
 
 public class fenetre extends JFrame implements ActionListener{
 

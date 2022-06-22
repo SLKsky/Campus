@@ -15,9 +15,6 @@ public class Apprenants {
 	double salaire;
 	
 	
-	
-	
-	
 	public Apprenants(String nom, String prenom, String date, String contact, String contact1, String nom_entreprise,
 			String date_inscription, String typeContrat, double salaire) {
 		super();
