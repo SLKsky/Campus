@@ -12,10 +12,29 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
 import java.awt.Color;
 import javax.swing.JMenuItem;
+import javax.swing.JTextField;
+import javax.swing.JFormattedTextField;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import javax.swing.JTextPane;
+import javax.swing.JSpinner;
+import javax.swing.JScrollBar;
+import javax.swing.JCheckBox;
+import javax.swing.JCheckBoxMenuItem;
+import java.awt.Button;
 
 public class fenetre extends JFrame implements ActionListener{
 
 	private JFrame frame;
+	private JTextField txtPrenom;
+	private JTextField txtDateDinscription;
+	private JTextField txtNom;
+	private JTextField txtSalaire;
+	private JTextField txtTlphone;
+	private JTextField txtTypeDeContrat;
+	private JTextField txtNomEntreprise;
+	private JTextField txtMail;
+	private Button button;
 
 	/**
 	 * Launch the application.
@@ -74,6 +93,53 @@ public class fenetre extends JFrame implements ActionListener{
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("PYTHON");
 		menuBar.add(mntmNewMenuItem_6);
+		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
+		
+		txtNom = new JTextField();
+		txtNom.setText("Nom");
+		frame.getContentPane().add(txtNom);
+		txtNom.setColumns(10);
+		
+		button = new Button("Promotion");
+		frame.getContentPane().add(button);
+		
+		txtPrenom = new JTextField();
+		txtPrenom.setText("Prenom");
+		frame.getContentPane().add(txtPrenom);
+		txtPrenom.setColumns(10);
+		
+		txtSalaire = new JTextField();
+		txtSalaire.setText("Salaire");
+		frame.getContentPane().add(txtSalaire);
+		txtSalaire.setColumns(10);
+		
+		txtDateDinscription = new JTextField();
+		txtDateDinscription.setText("Date d'inscription");
+		frame.getContentPane().add(txtDateDinscription);
+		txtDateDinscription.setColumns(10);
+		
+		txtTypeDeContrat = new JTextField();
+		txtTypeDeContrat.setText("Type de contrat");
+		frame.getContentPane().add(txtTypeDeContrat);
+		txtTypeDeContrat.setColumns(10);
+		
+		txtTlphone = new JTextField();
+		txtTlphone.setText("Téléphone");
+		frame.getContentPane().add(txtTlphone);
+		txtTlphone.setColumns(10);
+		
+		txtMail = new JTextField();
+		txtMail.setText("Mail");
+		frame.getContentPane().add(txtMail);
+		txtMail.setColumns(10);
+		
+		txtNomEntreprise = new JTextField();
+		txtNomEntreprise.setText("Nom Entreprise");
+		frame.getContentPane().add(txtNomEntreprise);
+		txtNomEntreprise.setColumns(10);
+		
+		JButton btnNewButton = new JButton("Valide");
+		frame.getContentPane().add(btnNewButton);
 	}
 
 	public void setVisible(boolean b) {
