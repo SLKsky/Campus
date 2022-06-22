@@ -2,10 +2,10 @@ package CSM;
 
 public class Date {
 
-	int year;
-	int month;
-	int day;
-	int hrs;
+	int annee;
+	int mois;
+	int jour;
+	int heures;
 	int min;
 	
 	
@@ -16,42 +16,42 @@ public class Date {
 
 
 	public int getYear() {
-		return year;
+		return annee;
 	}
 
 
 	public void setYear(int year) {
-		this.year = year;
+		this.annee = year;
 	}
 
 
 	public int getMonth() {
-		return month;
+		return mois;
 	}
 
 
 	public void setMonth(int month) {
-		this.month = month;
+		this.mois = month;
 	}
 
 
 	public int getDay() {
-		return day;
+		return jour;
 	}
 
 
 	public void setDay(int day) {
-		this.day = day;
+		this.jour = day;
 	}
 
 
 	public int getHrs() {
-		return hrs;
+		return heures;
 	}
 
 
 	public void setHrs(int hrs) {
-		this.hrs = hrs;
+		this.heures = hrs;
 	}
 
 
@@ -67,7 +67,7 @@ public class Date {
 
 	@Override
 	public String toString() {
-		return "Date [year=" + year + ", month=" + month + ", day=" + day + ", hrs=" + hrs + ", min=" + min + "]";
+		return "Date [year=" + annee + ", month=" + mois + ", day=" + jour + ", hrs=" + heures + ", min=" + min + "]";
 	}
 
 
