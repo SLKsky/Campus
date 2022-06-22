@@ -3,6 +3,7 @@ package CSM;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.EventObject;
 
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
@@ -12,16 +13,23 @@ import javax.swing.SwingConstants;
 import javax.swing.JMenuBar;
 import java.awt.Color;
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JFormattedTextField;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.Window;
+
 import javax.swing.JTextPane;
 import javax.swing.JSpinner;
 import javax.swing.JScrollBar;
 import javax.swing.JCheckBox;
 import javax.swing.JCheckBoxMenuItem;
 import java.awt.Button;
+import javax.swing.JPopupMenu;
+import java.awt.Component;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class fenetre extends JFrame implements ActionListener{
 
@@ -34,7 +42,8 @@ public class fenetre extends JFrame implements ActionListener{
 	private JTextField txtTypeDeContrat;
 	private JTextField txtNomEntreprise;
 	private JTextField txtMail;
-	private Button button;
+	private JButton button;
+	private JButton btnNewButton;
 
 	/**
 	 * Launch the application.
@@ -66,80 +75,93 @@ public class fenetre extends JFrame implements ActionListener{
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setEnabled(false);
 		menuBar.setForeground(Color.GRAY);
 		frame.setJMenuBar(menuBar);
-		
+
 		JMenuItem mntmNewMenuItem = new JMenuItem("ADD");
 		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem);
-		
+
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Remove");
 		menuBar.add(mntmNewMenuItem_1);
-		
+
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("JAVA");
 		menuBar.add(mntmNewMenuItem_2);
-		
+
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("PHP");
 		menuBar.add(mntmNewMenuItem_3);
-		
+
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("C");
 		menuBar.add(mntmNewMenuItem_4);
-		
+
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("SQL");
 		menuBar.add(mntmNewMenuItem_5);
-		
+
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("PYTHON");
 		menuBar.add(mntmNewMenuItem_6);
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
-		
+
+
 		txtNom = new JTextField();
 		txtNom.setText("Nom");
 		frame.getContentPane().add(txtNom);
 		txtNom.setColumns(10);
-		
-		button = new Button("Promotion");
+		txtNom.setVisible(false);
+
+
+		button = new JButton("Promotion");
 		frame.getContentPane().add(button);
-		
+		button.setVisible(false);
+
 		txtPrenom = new JTextField();
 		txtPrenom.setText("Prenom");
 		frame.getContentPane().add(txtPrenom);
 		txtPrenom.setColumns(10);
-		
+		txtPrenom.setVisible(false);
+
 		txtSalaire = new JTextField();
 		txtSalaire.setText("Salaire");
 		frame.getContentPane().add(txtSalaire);
 		txtSalaire.setColumns(10);
-		
+		txtSalaire.setVisible(false);
+
 		txtDateDinscription = new JTextField();
 		txtDateDinscription.setText("Date d'inscription");
 		frame.getContentPane().add(txtDateDinscription);
 		txtDateDinscription.setColumns(10);
-		
+		txtDateDinscription.setVisible(false);
+
 		txtTypeDeContrat = new JTextField();
 		txtTypeDeContrat.setText("Type de contrat");
 		frame.getContentPane().add(txtTypeDeContrat);
 		txtTypeDeContrat.setColumns(10);
-		
+		txtTypeDeContrat.setVisible(false);
+
 		txtTlphone = new JTextField();
 		txtTlphone.setText("Téléphone");
 		frame.getContentPane().add(txtTlphone);
 		txtTlphone.setColumns(10);
-		
+		txtTlphone.setVisible(false);
+
 		txtMail = new JTextField();
 		txtMail.setText("Mail");
 		frame.getContentPane().add(txtMail);
 		txtMail.setColumns(10);
-		
+		txtMail.setVisible(false);
+
 		txtNomEntreprise = new JTextField();
 		txtNomEntreprise.setText("Nom Entreprise");
 		frame.getContentPane().add(txtNomEntreprise);
 		txtNomEntreprise.setColumns(10);
-		
-		JButton btnNewButton = new JButton("Valide");
+		txtNomEntreprise.setVisible(false);
+
+		btnNewButton = new JButton("Valide");
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.setVisible(false);
 	}
 
 	public void setVisible(boolean b) {
@@ -150,7 +172,45 @@ public class fenetre extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		
+		visibleadd(e);
+	}
+
+	public void visibleadd(EventObject e)
+	{
+		if (((JMenuItem)e.getSource()).getText().equals("ADD"))
+		{
+			visibleaddall();
+		}
+		else if (((JButton)e.getSource()).getText().equals("Promotion"))
+		{
+			visiblepopup();
+		}
+	}
+
+	public void visibleaddall()
+	{
+		txtMail.setVisible(true);
+		txtNomEntreprise.setVisible(true);
+		txtNom.setVisible(true);
+		button.setVisible(true);
+		txtPrenom.setVisible(true);
+		txtSalaire.setVisible(true);
+		txtDateDinscription.setVisible(true);
+		txtTypeDeContrat.setVisible(true);
+		txtTlphone.setVisible(true);
+		txtNomEntreprise.setVisible(true);
+		btnNewButton.setVisible(true);
+	}
+
+	public void visiblepopup()
+	{
+		System.out.println("test");
+		JFrame jFrame = new JFrame();
+		jFrame.setVisible(true);
+		jFrame.setBounds(100, 100, 450, 300);
+		String getMessage = JOptionPane.showInputDialog(jFrame, "Enter your message");
+
+		JOptionPane.showMessageDialog(jFrame, "Your message: "+getMessage);
 	}
 
 }
