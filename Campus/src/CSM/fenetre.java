@@ -115,6 +115,7 @@ public class fenetre extends JFrame implements ActionListener{
 
 		button = new JButton("Promotion");
 		frame.getContentPane().add(button);
+		button.addActionListener(this);
 		button.setVisible(false);
 
 		txtPrenom = new JTextField();
@@ -180,10 +181,10 @@ public class fenetre extends JFrame implements ActionListener{
 		if (((JMenuItem)e.getSource()).getText().equals("ADD"))
 		{
 			visibleaddall();
-		}
-		else if (((JButton)e.getSource()).getText().equals("Promotion"))
-		{
-			visiblepopup();
+			if (((JButton)e.getSource()).getText().equals("Promotion"))
+			{
+				visiblepopup();
+			}
 		}
 	}
 
@@ -207,7 +208,6 @@ public class fenetre extends JFrame implements ActionListener{
 		System.out.println("test");
 		JFrame jFrame = new JFrame();
 		jFrame.setVisible(true);
-		jFrame.setBounds(100, 100, 450, 300);
 		String getMessage = JOptionPane.showInputDialog(jFrame, "Enter your message");
 
 		JOptionPane.showMessageDialog(jFrame, "Your message: "+getMessage);
