@@ -5,7 +5,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.EventObject;
 
-import javax.swing.JFrame;
+import javax.swing.*;
+import javax.swing.JLabel;
 import javax.swing.JToolBar;
 import java.awt.BorderLayout;
 
@@ -27,6 +28,8 @@ import javax.swing.JSpinner;
 import javax.swing.JScrollBar;
 import javax.swing.JCheckBox;
 import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JDialog;
+
 import java.awt.Button;
 import javax.swing.JPopupMenu;
 import java.awt.Component;
@@ -46,6 +49,7 @@ public class fenetre extends JFrame implements ActionListener{
 	private JTextField txtMail;
 	private JButton button;
 	private JButton btnNewButton;
+	private JRadioButton chckbxNewCheckBox;
 
 	/**
 	 * Launch the application.
@@ -126,6 +130,7 @@ public class fenetre extends JFrame implements ActionListener{
 		txtPrenom.setColumns(10);
 		txtPrenom.setVisible(false);
 
+
 		txtSalaire = new JTextField();
 		txtSalaire.setText("Salaire");
 		frame.getContentPane().add(txtSalaire);
@@ -183,7 +188,7 @@ public class fenetre extends JFrame implements ActionListener{
 		if (((AbstractButton)e.getSource()).getText().equals("ADD"))
 		{
 			visibleaddall();
-			
+
 		}
 		else if (((AbstractButton)e.getSource()).getText().equals("Promotion"))
 		{
@@ -208,12 +213,54 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void visiblepopup()
 	{
-		System.out.println("test");
 		JFrame jFrame = new JFrame();
-		jFrame.setVisible(true);
-		String getMessage = JOptionPane.showInputDialog(jFrame, "Enter your message");
 
-		JOptionPane.showMessageDialog(jFrame, "Your message: "+getMessage);
+		JDialog jd = new JDialog(jFrame);
+
+		jd.setLayout(new FlowLayout());
+
+		jd.setBounds(500, 300, 400, 300);
+
+		JLabel jLabel = new JLabel("Press close button to close the dialog.");
+		ButtonGroup bg = new ButtonGroup();
+
+		chckbxNewCheckBox = new JRadioButton("JAVA");
+		JRadioButton j = new JRadioButton("JAVA");
+		jd.add(j);
+		bg.add(j);
+
+
+		chckbxNewCheckBox = new JRadioButton("PHP");
+		JRadioButton p = new JRadioButton("PHP");
+		jd.add(p);
+		bg.add(p);
+
+		chckbxNewCheckBox = new JRadioButton("C");
+		JRadioButton c = new JRadioButton("C");
+		jd.add(c);
+		bg.add(c);
+
+		chckbxNewCheckBox = new JRadioButton("SQL");
+		JRadioButton s = new JRadioButton("SQL");
+		jd.add(s);
+		bg.add(s);
+
+		chckbxNewCheckBox = new JRadioButton("PYTHON");
+		JRadioButton py = new JRadioButton("PYTHON");
+		jd.add(py);
+		bg.add(py);
+
+		//TODO
+		//	        jButton.addActionListener(new ActionListener() {
+		//	            @Override
+		//	            public void actionPerformed(ActionEvent e) {
+		//	                jd.setVisible(false);
+		//	            }
+		//	        });
+
+		jd.add(jLabel);
+		jd.setVisible(true);
+		jFrame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 	}
 
 }
