@@ -1,6 +1,8 @@
 package CSM;
 
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JToolBar;
@@ -11,7 +13,7 @@ import javax.swing.JMenuBar;
 import java.awt.Color;
 import javax.swing.JMenuItem;
 
-public class fenetre {
+public class fenetre extends JFrame implements ActionListener{
 
 	private JFrame frame;
 
@@ -48,7 +50,7 @@ public class fenetre {
 		
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setEnabled(false);
-		menuBar.setForeground(Color.LIGHT_GRAY);
+		menuBar.setForeground(Color.GRAY);
 		frame.setJMenuBar(menuBar);
 		
 		JMenuItem mntmNewMenuItem = new JMenuItem("ADD");
@@ -72,6 +74,17 @@ public class fenetre {
 		
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("PYTHON");
 		menuBar.add(mntmNewMenuItem_6);
+	}
+
+	public void setVisible(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) {
-		Fen f = new Fen();
+		fenetre f = new fenetre();
 		f.setVisible(true);
 		
 		int appnb = 0;
