@@ -18,7 +18,7 @@ public class Apprenants {
 	
 	
 	
-	public Apprenants(String nom, String prenom, String date, String contact, String contact1, String nom_entreprise,
+	public Apprenants(String nom, String prenom, String date, String telephone , String mail, String nom_entreprise,
 			String date_inscription, String typeContrat, double salaire) {
 		super();
 		this.nom = Scan.scanString("Renseignez le Nom de l'Apprenant : ");
