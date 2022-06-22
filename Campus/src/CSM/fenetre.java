@@ -39,14 +39,18 @@ import java.awt.event.MouseEvent;
 public class fenetre extends JFrame implements ActionListener{
 
 	private JFrame frame;
-	private JTextField txtPrenom;
-	private JTextField txtDateDinscription;
-	private JTextField txtNom;
-	private JTextField txtSalaire;
-	private JTextField txtTlphone;
-	private JTextField txtTypeDeContrat;
-	private JTextField txtNomEntreprise;
-	private JTextField txtMail;
+	protected JTextField txtPrenom;
+	protected JTextField txtDateDinscription;
+	protected JTextField txtNom;
+	protected JTextField txtSalaire;
+	protected JTextField txtTlphone;
+	protected JTextField txtTypeDeContrat;
+	protected JTextField txtNomEntreprise;
+	protected JTextField txtMail;
+	protected JTextField txtdure;
+	protected JTextField txtdureec;
+	protected JTextField txtacuelle;
+	protected JTextField txtdip;
 	private JButton button;
 	private JButton btnNewButton;
 	private JRadioButton chckbxNewCheckBox;
@@ -57,12 +61,12 @@ public class fenetre extends JFrame implements ActionListener{
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
-					fenetre window = new fenetre();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
+				//try {
+				fenetre window = new fenetre();
+				window.frame.setVisible(true);
+				//} catch (Exception e) {
+				//	e.printStackTrace();
+				//}
 			}
 		});
 	}
@@ -71,6 +75,7 @@ public class fenetre extends JFrame implements ActionListener{
 	 * Create the application.
 	 */
 	public fenetre() {
+
 		initialize();
 	}
 
@@ -114,6 +119,7 @@ public class fenetre extends JFrame implements ActionListener{
 
 		txtNom = new JTextField();
 		txtNom.setText("Nom");
+		txtNom.getText();
 		frame.getContentPane().add(txtNom);
 		txtNom.setColumns(10);
 		txtNom.setVisible(false);
@@ -121,11 +127,13 @@ public class fenetre extends JFrame implements ActionListener{
 
 		button = new JButton("Promotion");
 		frame.getContentPane().add(button);
+		// Récupère Choice
 		button.addActionListener(this);
 		button.setVisible(false);
 
 		txtPrenom = new JTextField();
 		txtPrenom.setText("Prenom");
+		txtPrenom.getText();
 		frame.getContentPane().add(txtPrenom);
 		txtPrenom.setColumns(10);
 		txtPrenom.setVisible(false);
@@ -133,43 +141,94 @@ public class fenetre extends JFrame implements ActionListener{
 
 		txtSalaire = new JTextField();
 		txtSalaire.setText("Salaire");
+		txtSalaire.getText();
 		frame.getContentPane().add(txtSalaire);
 		txtSalaire.setColumns(10);
 		txtSalaire.setVisible(false);
 
 		txtDateDinscription = new JTextField();
 		txtDateDinscription.setText("Date d'inscription");
+		txtDateDinscription.getText();
 		frame.getContentPane().add(txtDateDinscription);
 		txtDateDinscription.setColumns(10);
 		txtDateDinscription.setVisible(false);
 
 		txtTypeDeContrat = new JTextField();
 		txtTypeDeContrat.setText("Type de contrat");
+		txtTypeDeContrat.getText();
 		frame.getContentPane().add(txtTypeDeContrat);
 		txtTypeDeContrat.setColumns(10);
 		txtTypeDeContrat.setVisible(false);
 
+
 		txtTlphone = new JTextField();
 		txtTlphone.setText("Téléphone");
+		txtTlphone.getText();
 		frame.getContentPane().add(txtTlphone);
 		txtTlphone.setColumns(10);
 		txtTlphone.setVisible(false);
 
 		txtMail = new JTextField();
 		txtMail.setText("Mail");
+		txtMail.getText();
 		frame.getContentPane().add(txtMail);
 		txtMail.setColumns(10);
 		txtMail.setVisible(false);
 
 		txtNomEntreprise = new JTextField();
 		txtNomEntreprise.setText("Nom Entreprise");
+		txtNomEntreprise.getText();
 		frame.getContentPane().add(txtNomEntreprise);
 		txtNomEntreprise.setColumns(10);
 		txtNomEntreprise.setVisible(false);
 
-		btnNewButton = new JButton("Valide");
+		btnNewButton = new JButton("Valider");
 		frame.getContentPane().add(btnNewButton);
+		btnNewButton.addActionListener(this);
 		btnNewButton.setVisible(false);
+		
+		//button ajoute page 2 pour info promotion 
+		
+		//TODO recuperai info de promotion
+		
+		txtdure = new JTextField();
+		txtdure.setText("Dure de la formation (en H)");
+		txtdure.getText();
+		frame.getContentPane().add(txtdure);
+		txtdure.setColumns(10);
+		txtdure.setVisible(false);
+		
+		txtdureec = new JTextField();
+		txtdureec .setText("Duré totale au centre (en %)");
+		txtdureec .getText();
+		frame.getContentPane().add(txtdureec );
+		txtdureec .setColumns(10);
+		txtdureec .setVisible(false);
+		
+		txtacuelle = new JTextField();
+		txtacuelle.setText("Nom Entreprise");
+		txtacuelle.getText();
+		frame.getContentPane().add(txtacuelle);
+		txtacuelle.setColumns(10);
+		txtacuelle.setVisible(false);
+		
+		txtdip = new JTextField();
+		txtdip.setText("Nom Entreprise");
+		txtdip.getText();
+		frame.getContentPane().add(txtdip);
+		txtdip.setColumns(10);
+		txtdip.setVisible(false);
+		
+		
+		
+	}
+
+	public JTextField getTxtPrenom() {
+		return txtPrenom;
+	}
+
+	public void setTxtPrenom(JTextField txtPrenom) {
+		this.txtPrenom = txtPrenom;
 	}
 
 	public void setVisible(boolean b) {
@@ -194,6 +253,26 @@ public class fenetre extends JFrame implements ActionListener{
 		{
 			visiblepopup();
 		}
+		else if (((AbstractButton)e.getSource()).getText().equals("Valider"))
+		{
+			Apprenants ap = new Apprenants(getName(), getName(), getName(), getName(), getName(), getTitle(), getWarningString(), getName(), ABORT);
+			addinfo(ap);
+			visibleaddallfal();
+			System.out.println(ap);
+			visibleaddall2();
+		}
+	}
+	
+	public void addinfo(Apprenants ap)
+	{
+		ap.nom = txtNom.getText();
+		ap.prenom = txtPrenom.getText();
+		ap.salaire = txtSalaire.getText();
+		ap.date_inscription = txtDateDinscription.getText();
+		ap.typeContrat = txtTypeDeContrat.getText();
+		ap.telephone = txtTlphone.getText();
+		ap.mail = txtMail.getText();
+		ap.nom_entreprise = txtNomEntreprise.getText();
 	}
 
 	public void visibleaddall()
@@ -210,6 +289,21 @@ public class fenetre extends JFrame implements ActionListener{
 		txtNomEntreprise.setVisible(true);
 		btnNewButton.setVisible(true);
 	}
+	
+	public void visibleaddallfal()
+	{
+		txtMail.setVisible(false);
+		txtNomEntreprise.setVisible(false);
+		txtNom.setVisible(false);
+		button.setVisible(false);
+		txtPrenom.setVisible(false);
+		txtSalaire.setVisible(false);
+		txtDateDinscription.setVisible(false);
+		txtTypeDeContrat.setVisible(false);
+		txtTlphone.setVisible(false);
+		txtNomEntreprise.setVisible(false);
+		btnNewButton.setVisible(false);
+	}
 
 	public void visiblepopup()
 	{
@@ -217,7 +311,7 @@ public class fenetre extends JFrame implements ActionListener{
 
 		JDialog jd = new JDialog(jFrame);
 
-		jd.setLayout(new FlowLayout());
+		jd.getContentPane().setLayout(new FlowLayout());
 
 		jd.setBounds(500, 300, 400, 300);
 
@@ -226,42 +320,42 @@ public class fenetre extends JFrame implements ActionListener{
 
 		chckbxNewCheckBox = new JRadioButton("JAVA");
 		JRadioButton j = new JRadioButton("JAVA");
-		jd.add(j);
+		jd.getContentPane().add(j);
 		bg.add(j);
-
 
 		chckbxNewCheckBox = new JRadioButton("PHP");
 		JRadioButton p = new JRadioButton("PHP");
-		jd.add(p);
+		jd.getContentPane().add(p);
 		bg.add(p);
 
 		chckbxNewCheckBox = new JRadioButton("C");
 		JRadioButton c = new JRadioButton("C");
-		jd.add(c);
+		jd.getContentPane().add(c);
 		bg.add(c);
 
 		chckbxNewCheckBox = new JRadioButton("SQL");
 		JRadioButton s = new JRadioButton("SQL");
-		jd.add(s);
+		jd.getContentPane().add(s);
 		bg.add(s);
 
 		chckbxNewCheckBox = new JRadioButton("PYTHON");
 		JRadioButton py = new JRadioButton("PYTHON");
-		jd.add(py);
+		jd.getContentPane().add(py);
 		bg.add(py);
 
-
-		//TODO//
-		//	        jButton.addActionListener(new ActionListener() {
-		//	            @Override
-		//	            public void actionPerformed(ActionEvent e) {
-		//	                jd.setVisible(false);
-		//	            }
-		//	        });
-
-		jd.add(jLabel);
+		jd.getContentPane().add(jLabel);
 		jd.setVisible(true);
 		jFrame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 	}
 
+	public void visibleaddall2()
+	{
+		txtdure.setVisible(true);
+		txtdureec .setVisible(true);
+		txtacuelle.setVisible(true);
+		button.setVisible(true);
+		txtdip.setVisible(true);
+		btnNewButton.setVisible(true);
+	}
+	
 }

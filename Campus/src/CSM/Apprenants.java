@@ -1,8 +1,11 @@
 package CSM;
 
+import java.awt.TextField;
 import java.util.Scanner;
 
-public class Apprenants {
+import javax.swing.JTextField;
+
+public class Apprenants  extends fenetre{
 	
 	String nom;
 	String prenom;
@@ -12,7 +15,7 @@ public class Apprenants {
 	String nom_entreprise;
 	String date_inscription;
 	String typeContrat;
-	double salaire;
+	String salaire;
 	
 	
 	
@@ -21,19 +24,23 @@ public class Apprenants {
 	public Apprenants(String nom, String prenom, String date, String telephone , String mail, String nom_entreprise,
 			String date_inscription, String typeContrat, double salaire) {
 		super();
-		this.nom = Scan.scanString("Renseignez le Nom de l'Apprenant : ");
-		this.prenom =   Scan.scanString("Renseignez le Prénom : ");
-		this.telephone =  Scan.scanString("Renseignez un numero de telephone : ");
-		this.mail =  Scan.scanString("Renseignez une adrese mail : ");
-		this.nom_entreprise =  Scan.scanString("Renseignez l'Entreprise : ");
-		this.date_inscription =  Scan.scanString("Renseignez la Date d'inscription : ");
-		this.typeContrat = Scan.scanString("Renseignez le type le contrat : [ Apprenant ou Stagaire ] ");
-		this.salaire = Scan.scanInteger("Renseignez le salaire :");
+		this.nom = txtNom.getText();
+		this.prenom =  txtPrenom.getText();
+		this.telephone =  txtSalaire.getText();
+		this.mail =  txtMail.getText();
+		this.nom_entreprise =  txtNomEntreprise.getText();
+		this.date_inscription =  txtDateDinscription.getText();
+		this.typeContrat = txtTypeDeContrat.getText();
+		//this.salaire = Scan.scanInteger("Renseignez le salaire :");
 		
 		
 	}
 
 	
+
+	
+
+
 
 	@Override
 	public String toString() {
@@ -41,6 +48,12 @@ public class Apprenants {
 				+ "\n"+ "Contacte en cas d'urgence " + telephone
 				+  "\n" + "Contact en cas d'urgence n2 : "+  mail + "\n" +"Nom de l'entreprise : "+ nom_entreprise 
 				+  "\n" +"Date d'inscription : "+ date_inscription  + "\n"+"Type de contrat :" + typeContrat + "\n"+ "Montant du salaire :" + salaire +"€" +"\n-----------------------------\n";
+	}
+	
+	public String gettoString()
+	{
+		return toString();
+		
 	}
 
 
@@ -62,8 +75,8 @@ public class Apprenants {
 
 
 
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	public String setPrenom(String prenom) {
+		return this.prenom = prenom;
 	}
 
 
@@ -140,13 +153,13 @@ public class Apprenants {
 
 
 
-	public double getSalaire() {
+	public String getSalaire() {
 		return salaire;
 	}
 
 
 
-	public void setSalaire(double salaire) {
+	public void setSalaire(String salaire) {
 		this.salaire = salaire;
 	}
 
