@@ -204,7 +204,7 @@ public class fenetre extends JFrame implements ActionListener{
 		frame.getContentPane().add(txtdip);
 		txtdip.setColumns(10);
 		txtdip.setVisible(false);
-		
+
 		txtNomEntreprise = new JTextField();
 		txtNomEntreprise.setText("Nom de l'entreprise ");
 		txtNomEntreprise.getText();
@@ -322,45 +322,60 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void visiblepopup()
 	{
-		JFrame jFrame = new JFrame();
+		JFrame jFrame = new JFrame("Choisir la promo");
 
-		JDialog jd = new JDialog(jFrame);
 
-		jd.getContentPane().setLayout(new FlowLayout());
+		jFrame.setBounds(500, 300, 400, 150);
 
-		jd.setBounds(500, 300, 400, 300);
-
+		JPanel panel = new JPanel();
+		JPanel panelLabel = new JPanel();
 		JLabel jLabel = new JLabel("Press close button to close the dialog.");
+		panelLabel.add(jLabel);
 		ButtonGroup bg = new ButtonGroup();
 
-		chckbxNewCheckBox = new JRadioButton("JAVA");
+
 		JRadioButton j = new JRadioButton("JAVA");
-		jd.getContentPane().add(j);
+		panel.add(j);
 		bg.add(j);
 
-		chckbxNewCheckBox = new JRadioButton("PHP");
+
 		JRadioButton p = new JRadioButton("PHP");
-		jd.getContentPane().add(p);
+		panel.add(p);
 		bg.add(p);
 
-		chckbxNewCheckBox = new JRadioButton("C");
+
 		JRadioButton c = new JRadioButton("C");
-		jd.getContentPane().add(c);
+		panel.add(c);
 		bg.add(c);
 
-		chckbxNewCheckBox = new JRadioButton("SQL");
+
 		JRadioButton s = new JRadioButton("SQL");
-		jd.getContentPane().add(s);
+		panel.add(s);
 		bg.add(s);
 
-		chckbxNewCheckBox = new JRadioButton("PYTHON");
+
 		JRadioButton py = new JRadioButton("PYTHON");
-		jd.getContentPane().add(py);
+		panel.add(py);
 		bg.add(py);
 
-		jd.getContentPane().add(jLabel);
-		jd.setVisible(true);
-		jFrame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
-	}
+		JButton valide = new JButton("Valider");
 
+		jFrame.getContentPane().add(BorderLayout.NORTH,panel);
+		jFrame.getContentPane().add(BorderLayout.CENTER,panelLabel);
+		jFrame.getContentPane().add(BorderLayout.SOUTH,valide);
+
+		jFrame.setVisible(true);
+
+		valide.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//call another method in the same class which will close this Jframe
+				jFrame.dispose();
+				
+			}
+		});
+
+	}
 }
+
+
+
