@@ -6,38 +6,25 @@ import java.awt.event.ActionListener;
 import java.util.EventObject;
 
 import javax.swing.*;
-import javax.swing.JLabel;
-import javax.swing.JToolBar;
+
 import java.awt.BorderLayout;
 
-import javax.swing.AbstractButton;
-import javax.swing.JButton;
-import javax.swing.SwingConstants;
+import javax.swing.plaf.FontUIResource;
 import javax.swing.plaf.synth.SynthOptionPaneUI;
-import javax.swing.JMenuBar;
+
 import java.awt.Color;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JFormattedTextField;
 import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Window;
-
-import javax.swing.JTextPane;
-import javax.swing.JSpinner;
-import javax.swing.JScrollBar;
-import javax.swing.JCheckBox;
-import javax.swing.JCheckBoxMenuItem;
-import javax.swing.JDialog;
-
 import java.awt.Button;
-import javax.swing.JPopupMenu;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class fenetre extends JFrame implements ActionListener{
+	
 
 	private JFrame frame;
 	protected JTextField txtPrenom;
@@ -57,6 +44,7 @@ public class fenetre extends JFrame implements ActionListener{
 	private JButton btnNewButton;
 	private JRadioButton chckbxNewCheckBox;
 	private JTextField textField;
+	JList<String> j;
 
 	/**
 	 * Launch the application.
@@ -101,21 +89,33 @@ public class fenetre extends JFrame implements ActionListener{
 		menuBar.add(mntmNewMenuItem);
 
 		JMenuItem mntmNewMenuItem_1 = new JMenuItem("Remove");
+		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_1);
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("JAVA");
+		mntmNewMenuItem_2.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem_2.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_2);
 
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("PHP");
+		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_3);
 
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("C");
+		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_4);
 
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("SQL");
+		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_5);
 
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("PYTHON");
+		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_6);
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 
@@ -239,15 +239,25 @@ public class fenetre extends JFrame implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		visibleadd(e);
+		visibleadd(e, null);
 	}
 
-	public void visibleadd(EventObject e)
+	public void visibleadd(EventObject e, JMenuItem mntmNewMenuItem_2)
 	{
 		if (((AbstractButton)e.getSource()).getText().equals("ADD"))
 		{
+			frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
+			affJlistoff();
+			//System.out.println(j);
 			visibleaddall();
 
+		}
+		else if (((AbstractButton)e.getSource()).getText().equals("JAVA"))
+		{
+			GridBagLayout grid = new GridBagLayout();
+			frame.setLayout(grid);
+			visibleaddallfal();
+			affJlist();	
 		}
 		else if (((AbstractButton)e.getSource()).getName() == "Promotion")
 		{
@@ -258,11 +268,13 @@ public class fenetre extends JFrame implements ActionListener{
 			System.out.println(txtpromotion);
 			Apprenants ap = new Apprenants(getName(), getName(), getName(), getName(), getName(), getTitle(), getWarningString(), getName(), ABORT);
 			Promotion  pr = new Promotion(txtpromotion, txtdure, txtdureec,txtacuelle);
-			
-			
+
 			addinfo(ap);
 			addinofpro(pr, 0, 0, 0);
 			System.out.println(ap+ "\n" + pr);
+			
+			//TODO reussir a ajouter ap + pr a la Jlist correspondante 
+			j.add( ap );
 		}
 	}
 
@@ -378,8 +390,8 @@ public class fenetre extends JFrame implements ActionListener{
 
 		jFrame.setVisible(true);
 
-		
-		
+
+
 		valide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//call another method in the same class which will close this Jframe
@@ -389,25 +401,25 @@ public class fenetre extends JFrame implements ActionListener{
 				{
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "JAVA";
-					
+
 				}
 				else if (a.equals("PHP"))
 				{
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "PHP";
-					
+
 				}
 				else if (a.equals("C"))
 				{
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "C";
-					
+
 				}
 				else if (a.equals("SQL"))
 				{
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "SQL";
-					
+
 				}
 				else if(a.equals("PYTHON"))
 				{
@@ -422,4 +434,27 @@ public class fenetre extends JFrame implements ActionListener{
 
 	}
 
+	public void affJlist()
+	{
+		
+		j = new JList<>();
+		j.setFont(new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int)(j.getFont().getSize() * 1.7)));
+		JPanel panel = new JPanel();
+		frame.setBounds(200, 200, 450, 300);
+
+		JScrollPane scroller = new JScrollPane(j);
+
+		scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+		panel.add(scroller);
+		j.setVisibleRowCount(7);
+		frame.getContentPane().add(j);
+		j.setVisible(true);
+	}
+	
+	public void affJlistoff()
+	{
+		j.setVisible(false);
+	}
 }

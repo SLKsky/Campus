@@ -57,8 +57,6 @@ public class Promotion  {
 	
 	}
 
-
-
 	public String getNomPromotion() {
 		return nomPromotion;
 	}
@@ -89,6 +87,8 @@ public class Promotion  {
 		this.dureeRealise = dureeRealise;
 	}
 	
+	
+	//TODO faire le compte une foix les utilisataur afficher a la Jlist 
 //	public int getNbApprenants() {
 //		int i = 0;
 //		
