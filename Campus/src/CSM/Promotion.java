@@ -2,17 +2,17 @@ package CSM;
 
 import java.util.ArrayList;
 
-public class Promotion {
+public class Promotion  extends fenetre{
 	boolean restart = true;
 
 	// attributs 
 
 	String nomPromotion; 
 	//les durée sont exprimée en pourcentage ou en heure
-	int dureeTotalFormation; 
-	int dureeTotalCentre;
+	String dureeTotalFormation; 
+	String dureeTotalCentre;
 	//la durée total dois etre | Durée total - durée centre - durée effectué|
-	int dureeRealise;
+	String dureeRealise;
 	int nbApprenants; 
 	String promoDiplomante;
 	
@@ -40,11 +40,11 @@ public class Promotion {
 		this.nomPromotion = Scan.scanString("Choisir la promo : [JAVA]-[PHP]-[SQL]-[C]-[PYTHON]");
 		//focntion ajout name close
 		ajout();
-		this.dureeTotalFormation = Scan.scanInteger("Renseignez le nombre d'heures :  ");
-		this.dureeTotalCentre = Scan.scanInteger("Renseignez la durée ( en  poucentage ) passée au centre de formation : ");
-		this.dureeRealise = Scan.scanInteger("Combien d'heure on deja etait faite ( en heure ) : ");
+		this.dureeTotalFormation = txtdure.getText();
+		this.dureeTotalCentre = txtdureec.getText();
+		this.dureeRealise = txtacuelle.getText();
 		this.nbApprenants = getNbApprenants();//appelle a la fonction qui compte le nombre d'etudian dans la promotion instruite pas l'user ! 
-		this.promoDiplomante = Scan.scanString("La promotion est-elle diplomante ? [Y or N]");
+		this.promoDiplomante = txtdip.getText();
 		
 	}
 
@@ -57,25 +57,25 @@ public class Promotion {
 		this.nomPromotion = nomPromotion;
 	}
 
-	public int getDureeTotalFormation() {
+	public String getDureeTotalFormation() {
 		return dureeTotalFormation;
 	}
 
-	public void setDureeTotalFormation(int dureeTotalFormation) {
+	public void setDureeTotalFormation(String dureeTotalFormation) {
 		this.dureeTotalFormation = dureeTotalFormation;
 	}
 
-	public int getDureeTotalCentre() {
+	public String getDureeTotalCentre() {
 		return dureeTotalCentre;
 	}
 
-	public void setDureeTotalCentre(int dureeTotalCentre) {
+	public void setDureeTotalCentre(String dureeTotalCentre) {
 		this.dureeTotalCentre = dureeTotalCentre;
 	}
-	public int getDureeRealise() {
+	public String getDureeRealise() {
 		return dureeRealise;
 	}
-	public void setDureeRealise(int dureeRealise) {
+	public void setDureeRealise(String dureeRealise) {
 		this.dureeRealise = dureeRealise;
 	}
 	
