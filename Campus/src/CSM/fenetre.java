@@ -1,13 +1,14 @@
 package CSM;
 
-
 import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
+import javax.swing.plaf.FontUIResource;
+
 import java.awt.*;
 
-public class fenetre extends JFrame implements ActionListener{
-
+public class fenetre extends JFrame implements ActionListener {
+	// private JPanel panel;
 	private JFrame frame;
 	private JTextField txtPrenom;
 	private JTextField txtDateDinscription;
@@ -49,8 +50,9 @@ public class fenetre extends JFrame implements ActionListener{
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(0, 0, 1920, 1080);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
 
 		JMenuBar menuBar = new JMenuBar();
 		menuBar.setEnabled(false);
@@ -58,7 +60,6 @@ public class fenetre extends JFrame implements ActionListener{
 		frame.setJMenuBar(menuBar);
 
 		JMenuItem mntmNewMenuItem = new JMenuItem("ADD");
-		mntmNewMenuItem.setForeground(Color.LIGHT_GRAY);
 		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem);
 
@@ -66,21 +67,26 @@ public class fenetre extends JFrame implements ActionListener{
 		menuBar.add(mntmNewMenuItem_1);
 
 		JMenuItem mntmNewMenuItem_2 = new JMenuItem("JAVA");
+		mntmNewMenuItem_2.addActionListener(this);
+		mntmNewMenuItem_2.setName("JAVA");
 		menuBar.add(mntmNewMenuItem_2);
 
 		JMenuItem mntmNewMenuItem_3 = new JMenuItem("PHP");
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_3);
 
 		JMenuItem mntmNewMenuItem_4 = new JMenuItem("C");
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_4);
 
 		JMenuItem mntmNewMenuItem_5 = new JMenuItem("SQL");
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_5);
 
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("PYTHON");
+		mntmNewMenuItem.addActionListener(this);
 		menuBar.add(mntmNewMenuItem_6);
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
-
 
 		txtNom = new JTextField();
 		txtNom.setText("Nom");
@@ -88,18 +94,17 @@ public class fenetre extends JFrame implements ActionListener{
 		txtNom.setColumns(10);
 		txtNom.setVisible(false);
 
-
 		button = new JButton("Promotion");
+		button.setName("Promotion");
 		frame.getContentPane().add(button);
 		button.addActionListener(this);
 		button.setVisible(false);
-
+		
 		txtPrenom = new JTextField();
 		txtPrenom.setText("Prenom");
 		frame.getContentPane().add(txtPrenom);
 		txtPrenom.setColumns(10);
 		txtPrenom.setVisible(false);
-
 
 		txtSalaire = new JTextField();
 		txtSalaire.setText("Salaire");
@@ -153,21 +158,21 @@ public class fenetre extends JFrame implements ActionListener{
 		visibleadd(e);
 	}
 
-	public void visibleadd(EventObject e)
-	{
-		if (((AbstractButton)e.getSource()).getText().equals("ADD"))
-		{
+	public void visibleadd(EventObject e) {
+		if (((AbstractButton) e.getSource()).getText().equals("ADD")) {
 			visibleaddall();
 
-		}
-		else if (((AbstractButton)e.getSource()).getText().equals("Promotion"))
-		{
+		} else if (((AbstractButton) e.getSource()).getName().equals("Promotion")) {
 			visiblepopup();
+		}
+		else if (((AbstractButton) e.getSource()).getName().equals("JAVA")) {
+			JPanel panel = new JPanel();
+			frame.add(panel);
+			affichList();
 		}
 	}
 
-	public void visibleaddall()
-	{
+	public void visibleaddall() {
 		txtMail.setVisible(true);
 		txtNomEntreprise.setVisible(true);
 		txtNom.setVisible(true);
@@ -181,10 +186,8 @@ public class fenetre extends JFrame implements ActionListener{
 		btnNewButton.setVisible(true);
 	}
 
-	public void visiblepopup()
-	{
+	public void visiblepopup() {
 		JFrame jFrame = new JFrame("Choisir la promo");
-
 
 		jFrame.setBounds(500, 300, 400, 150);
 
@@ -194,26 +197,21 @@ public class fenetre extends JFrame implements ActionListener{
 		panelLabel.add(jLabel);
 		ButtonGroup bg = new ButtonGroup();
 
-
 		JRadioButton j = new JRadioButton("JAVA");
 		panel.add(j);
 		bg.add(j);
-
 
 		JRadioButton p = new JRadioButton("PHP");
 		panel.add(p);
 		bg.add(p);
 
-
 		JRadioButton c = new JRadioButton("C");
 		panel.add(c);
 		bg.add(c);
 
-
 		JRadioButton s = new JRadioButton("SQL");
 		panel.add(s);
 		bg.add(s);
-
 
 		JRadioButton py = new JRadioButton("PYTHON");
 		panel.add(py);
@@ -221,20 +219,54 @@ public class fenetre extends JFrame implements ActionListener{
 
 		JButton valide = new JButton("Valider");
 
-		jFrame.getContentPane().add(BorderLayout.NORTH,panel);
-		jFrame.getContentPane().add(BorderLayout.CENTER,panelLabel);
-		jFrame.getContentPane().add(BorderLayout.SOUTH,valide);
+		jFrame.getContentPane().add(BorderLayout.NORTH, panel);
+		jFrame.getContentPane().add(BorderLayout.CENTER, panelLabel);
+		jFrame.getContentPane().add(BorderLayout.SOUTH, valide);
 
 		jFrame.setVisible(true);
-		
+
 		valide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//call another method in the same class which will close this Jframe
-				jFrame.dispose();
+				String selectedText = getSelectedButtonText(bg);
+
+				if (selectedText != null) {
+					button.setText(selectedText);
+					jFrame.dispose();
+				}
 			}
 		});
-		
+	}
+
+	public String getSelectedButtonText(ButtonGroup bg) {
+		for (Enumeration<AbstractButton> buttons = bg.getElements(); buttons.hasMoreElements();) {
+			AbstractButton button = buttons.nextElement();
+
+			if (button.isSelected()) {
+				return button.getText();
+			}
+		}
+
+		return null;
 
 	}
-	
+	public void affichList() {
+		JFrame frame2 = new JFrame();
+
+		JList<Apprenants> list = new JList<>();
+		
+		list.setFont(new FontUIResource(list.getFont().getName(), list.getFont().getStyle(), (int)(list.getFont().getSize() * 1.7)));
+		list.setPreferredSize(new Dimension(200, 250));
+		
+		frame2.setBounds(600, 400, 250, 250);
+
+		JScrollPane scroller = new JScrollPane(list);
+
+		scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+		scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		list.setVisibleRowCount(7);
+		frame2.add(scroller);
+
+
+		frame2.setVisible(true);
+	}
 }
