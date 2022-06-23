@@ -13,6 +13,7 @@ import java.awt.BorderLayout;
 import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.plaf.synth.SynthOptionPaneUI;
 import javax.swing.JMenuBar;
 import java.awt.Color;
 import javax.swing.JMenuItem;
@@ -51,6 +52,7 @@ public class fenetre extends JFrame implements ActionListener{
 	protected JTextField txtdureec;
 	protected JTextField txtacuelle;
 	protected JTextField txtdip;
+	protected String txtpromotion;
 	private JButton button;
 	private JButton btnNewButton;
 	private JRadioButton chckbxNewCheckBox;
@@ -127,8 +129,8 @@ public class fenetre extends JFrame implements ActionListener{
 
 
 		button = new JButton("Promotion");
+		button.setName("Promotion");
 		frame.getContentPane().add(button);
-		// Récupère Choice
 		button.addActionListener(this);
 		button.setVisible(false);
 
@@ -247,16 +249,20 @@ public class fenetre extends JFrame implements ActionListener{
 			visibleaddall();
 
 		}
-		else if (((AbstractButton)e.getSource()).getText().equals("Promotion"))
+		else if (((AbstractButton)e.getSource()).getName() == "Promotion")
 		{
 			visiblepopup();
 		}
 		else if (((AbstractButton)e.getSource()).getText().equals("Valider"))
 		{
+			System.out.println(txtpromotion);
 			Apprenants ap = new Apprenants(getName(), getName(), getName(), getName(), getName(), getTitle(), getWarningString(), getName(), ABORT);
-			Promotion  pr = new Promotion(getWarningString(), NORMAL, ERROR, ALLBITS, ABORT, getName());
+			Promotion  pr = new Promotion(txtpromotion, txtdure, txtdureec,txtacuelle);
+			
+			
 			addinfo(ap);
 			addinofpro(pr, 0, 0, 0);
+			System.out.println(ap+ "\n" + pr);
 		}
 	}
 
@@ -274,10 +280,11 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void addinofpro(Promotion pr, int a , int b , int c)
 	{
+		System.out.println(txtpromotion);
+		pr.nomPromotion = txtpromotion;
 		pr.dureeTotalFormation = txtdure.getText();
 		pr.dureeTotalCentre = txtdureec.getText();
 		pr.dureeRealise = txtacuelle.getText();
-		pr.getNbApprenants();
 		pr.promoDiplomante = txtdip.getText();
 	}
 
@@ -320,7 +327,7 @@ public class fenetre extends JFrame implements ActionListener{
 		btnNewButton.setVisible(false);
 	}
 
-	public void visiblepopup()
+	public String visiblepopup()
 	{
 		JFrame jFrame = new JFrame("Choisir la promo");
 
@@ -335,26 +342,31 @@ public class fenetre extends JFrame implements ActionListener{
 
 
 		JRadioButton j = new JRadioButton("JAVA");
+		j.setActionCommand("JAVA");
 		panel.add(j);
 		bg.add(j);
 
 
 		JRadioButton p = new JRadioButton("PHP");
+		p.setActionCommand("PHP");
 		panel.add(p);
 		bg.add(p);
 
 
 		JRadioButton c = new JRadioButton("C");
+		c.setActionCommand("C");
 		panel.add(c);
 		bg.add(c);
 
 
 		JRadioButton s = new JRadioButton("SQL");
+		s.setActionCommand("SQL");
 		panel.add(s);
 		bg.add(s);
 
 
 		JRadioButton py = new JRadioButton("PYTHON");
+		py.setActionCommand("PYTHON");
 		panel.add(py);
 		bg.add(py);
 
@@ -366,16 +378,48 @@ public class fenetre extends JFrame implements ActionListener{
 
 		jFrame.setVisible(true);
 
+		
+		
 		valide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//call another method in the same class which will close this Jframe
+				String a =  bg.getSelection().getActionCommand();
+
+				if (a.equals("JAVA"))
+				{
+					button.setText(bg.getSelection().getActionCommand());
+					txtpromotion = "JAVA";
+					
+				}
+				else if (a.equals("PHP"))
+				{
+					button.setText(bg.getSelection().getActionCommand());
+					txtpromotion = "PHP";
+					
+				}
+				else if (a.equals("C"))
+				{
+					button.setText(bg.getSelection().getActionCommand());
+					txtpromotion = "C";
+					
+				}
+				else if (a.equals("SQL"))
+				{
+					button.setText(bg.getSelection().getActionCommand());
+					txtpromotion = "SQL";
+					
+				}
+				else if(a.equals("PYTHON"))
+				{
+					button.setText(bg.getSelection().getActionCommand());
+					txtpromotion = "PYTHON";
+				}
 				jFrame.dispose();
-				
+
 			}
 		});
+		return txtpromotion;
 
 	}
+
 }
-
-
-

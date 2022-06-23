@@ -55,16 +55,5 @@ public class Main {
 		}
 	}
 	
-	public static void condisave()
-	{
-		//SANS INTERFACE GRAPHIQUE 
-		
-		//créé la fontion de savaugarde en txt 
-		//créé 5 fichier txt au nom des formation dispo 
-		//reussire via condition a ajouter l'apprenant (avec absolument toute les info) dans ça formation via l'attribue  nomPromotion 
-		//cree un fichier txt qui contien tout les apprenant sans filtre
-		
-		System.out.println("A ajouter dans l'avenir !");
-	}
 
 }

@@ -36,12 +36,6 @@ public class Apprenants  extends fenetre{
 		
 	}
 
-	
-
-	
-
-
-
 	@Override
 	public String toString() {
 		return   "\n----------------------------- \n"+ "nom de famille de l'apprenant :" +	nom + "\n" + "Prénom de l'apprenant :"+ prenom + "\n"

@@ -2,7 +2,10 @@ package CSM;
 
 import java.util.ArrayList;
 
-public class Promotion  extends fenetre{
+import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
+
+public class Promotion  {
 	boolean restart = true;
 
 	// attributs 
@@ -13,7 +16,7 @@ public class Promotion  extends fenetre{
 	String dureeTotalCentre;
 	//la durée total dois etre | Durée total - durée centre - durée effectué|
 	String dureeRealise;
-	int nbApprenants; 
+	//int nbApprenants; 
 	String promoDiplomante;
 	
 	//5 liste de promotion divers
@@ -28,25 +31,32 @@ public class Promotion  extends fenetre{
 	public String toString() {
 		return "Promotion [nomPromotion=" + nomPromotion + ", dureeTotalFormation=" + dureeTotalFormation
 				+ ", dureeTotalCentre=" + dureeTotalCentre + ", dureeRealise=" + dureeRealise + ", nbApprenants de la promotion =" + nomPromotion +" est deux :"
-				+ nbApprenants + ", promoDiplomante=" + promoDiplomante + "]";
+			+ ", promoDiplomante=" + promoDiplomante + "]";
 	}
 
 
 
-	public Promotion(String nomPromotion, int dureeTotalFormation, int dureeTotalCentre, int dureeRealise,
-			int nbApprenants, String promoDiplomante) 
+	public Promotion(String nomPromotion, String dureeTotalFormation, String dureeTotalCentre, String dureeRealise,
+			 String promoDiplomante) 
 	{
 		super();
-		this.nomPromotion = Scan.scanString("Choisir la promo : [JAVA]-[PHP]-[SQL]-[C]-[PYTHON]");
+
+		this.nomPromotion = nomPromotion;
 		//focntion ajout name close
 		ajout();
-		this.dureeTotalFormation = txtdure.getText();
-		this.dureeTotalCentre = txtdureec.getText();
-		this.dureeRealise = txtacuelle.getText();
-		this.nbApprenants = getNbApprenants();//appelle a la fonction qui compte le nombre d'etudian dans la promotion instruite pas l'user ! 
-		this.promoDiplomante = txtdip.getText();
+		this.dureeTotalFormation = dureeTotalFormation;
+		this.dureeTotalCentre = dureeTotalCentre;
+		this.dureeRealise = dureeRealise;
+		this.promoDiplomante = promoDiplomante;
 		
 	}
+
+
+	public Promotion(String txtpromotion, JTextField txtdure, JTextField txtdureec, JTextField txtacuelle) {
+		// TODO Auto-generated constructor stub
+	
+	}
+
 
 
 	public String getNomPromotion() {
@@ -79,56 +89,54 @@ public class Promotion  extends fenetre{
 		this.dureeRealise = dureeRealise;
 	}
 	
-	public int getNbApprenants() {
-		int i = 0;
-		
-		if (nomPromotion.equals("java") || nomPromotion.equals("JAVA"))
-		{
-			while(i <= java.size())
-			{
-				i++;
-			}
-			nbApprenants = i ;
-			
-		}
-		else if (nomPromotion.equals("php") || nomPromotion.equals("PHP"))
-		{
-			while(i <= php.size())
-			{
-				i++;
-			}
-			nbApprenants = i ;
-		}
-		else if (nomPromotion.equals("sql") || nomPromotion.equals("SQL"))
-		{
-			while(i <= sql.size())
-			{
-				i++;
-			}
-			nbApprenants = i ;
-		}
-		else if (nomPromotion.equals("c") || nomPromotion.equals("C"))
-		{
-			while(i <= c.size())
-			{
-				i++;
-			}
-			nbApprenants = i ;
-		}
-		else if (nomPromotion.equals("python") || nomPromotion.equals("PYTHON"))
-		{
-			while(i <= python.size())
-			{
-				i++;
-			}
-			nbApprenants = i ;
-		}
-		return nbApprenants;
-	}
+//	public int getNbApprenants() {
+//		int i = 0;
+//		
+//		if (nomPromotion.equals("java") || nomPromotion.equals("JAVA"))
+//		{
+//			while(i <= java.size())
+//			{
+//				i++;
+//			}
+//			nbApprenants = i ;
+//			
+//		}
+//		else if (nomPromotion.equals("php") || nomPromotion.equals("PHP"))
+//		{
+//			while(i <= php.size())
+//			{
+//				i++;
+//			}
+//			nbApprenants = i ;
+//		}
+//		else if (nomPromotion.equals("sql") || nomPromotion.equals("SQL"))
+//		{
+//			while(i <= sql.size())
+//			{
+//				i++;
+//			}
+//			nbApprenants = i ;
+//		}
+//		else if (nomPromotion.equals("c") || nomPromotion.equals("C"))
+//		{
+//			while(i <= c.size())
+//			{
+//				i++;
+//			}
+//			nbApprenants = i ;
+//		}
+//		else if (nomPromotion.equals("python") || nomPromotion.equals("PYTHON"))
+//		{
+//			while(i <= python.size())
+//			{
+//				i++;
+//			}
+//			nbApprenants = i ;
+//		}
+//		return nbApprenants;
+//	}
 	
-	public void setNbApprenants(int nbApprenants) {
-		this.nbApprenants = nbApprenants;
-	}
+	
 	public String getPromoDiplomante() {
 		return promoDiplomante;
 	}
