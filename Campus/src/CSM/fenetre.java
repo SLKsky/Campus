@@ -439,28 +439,21 @@ public class fenetre extends JFrame implements ActionListener{
 	public void affJlist()
 	{
 		JFrame frame = new JFrame();
-        Apprenants fly = new Apprenants(txtNom, txtPrenom, txtDateDinscription, txtTypeDeContrat, txtNomEntreprise, txtdureec, txtdure, txtacuelle);
+        Apprenants fly = new Apprenants("Nom", "Prenom", "DateDinscription", "TypeDeContrat", "NomEntreprise", "dureec", "dure","actu");
         DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
         demoList.addElement(fly);
-        JList<Apprenants> list = new JList<>(demoList);
-        Apprenants fly2 = new Apprenants(textField, textField, textField, textField, textField, textField, textField, textField);
+        JList<Apprenants> j = new JList<>(demoList);
+        Apprenants fly2 = new Apprenants("Nom", "Prenom", "DateDinscription", "TypeDeContrat", "NomEntreprise", "dureec", "dure","actu");
         demoList.addElement(fly2);
-
+        System.out.println(fly2);
 
         // Object o = new Object();
-        j.setFont(new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int)(j.getFont().getSize() * 1.7)));
-        j.setPreferredSize(new Dimension(200, 250));
+        j.setFont(new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int)(j.getFont().getSize() * 1.2)));
+        j.setPreferredSize(new Dimension(1900, 1000));
         JPanel panel = new JPanel();
-        frame.setBounds(600, 400, 250, 250);
+        frame.setBounds(600, 400, 1920, 1080);
+        panel.add(j);
 
-        JScrollPane scroller = new JScrollPane(j);
-
-        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-
-        panel.add(scroller);
-
-        j.setVisibleRowCount(7);
         frame.getContentPane().add(BorderLayout.CENTER, panel);
         frame.setVisible(true);
 	}

@@ -22,39 +22,39 @@ public class Apprenants  extends fenetre{
 	
 	
 	public Apprenants(String nom, String prenom, String date, String telephone , String mail, String nom_entreprise,
-			String date_inscription, String typeContrat, String salaire) {
+			String typeContrat, String salaire) {
 		super();
 		this.nom = nom;
 		this.prenom = prenom;
 		this.salaire = salaire;
 		this.mail = mail;
 		this.nom_entreprise = nom_entreprise ;
-		this.date_inscription = date_inscription ;
+		this.date= date ;
 		this.typeContrat = typeContrat;
-
+		this.telephone = telephone;
 		
 		
 	}
 
-	public Apprenants(JTextField txtNom, JTextField txtPrenom, JTextField txtSalaire, JTextField txtSalaire2,
-			JTextField txtMail, JTextField txtNomEntreprise, JTextField txtDateDinscription,
-			JTextField txtTypeDeContrat) {
-		// TODO Auto-generated constructor stub
-	}
+//	public Apprenants(JTextField txtNom, JTextField txtPrenom, JTextField txtSalaire, JTextField txtSalaire2,
+//			JTextField txtMail, JTextField txtNomEntreprise, JTextField txtDateDinscription,
+//			JTextField txtTypeDeContrat) {
+//		// TODO Auto-generated constructor stub
+//	}
 
 	@Override
 	public String toString() {
-		return   "\n----------------------------- \n"+ "nom de famille de l'apprenant :" +	nom + "\n" + "Prénom de l'apprenant :"+ prenom + "\n"
+		return   "nom de famille de l'apprenant :" +	nom + "\n" + "Prénom de l'apprenant :"+ prenom + "\n"
 				+ "\n"+ "Contacte en cas d'urgence " + telephone
 				+  "\n" + "Contact en cas d'urgence n2 : "+  mail + "\n" +"Nom de l'entreprise : "+ nom_entreprise 
-				+  "\n" +"Date d'inscription : "+ date_inscription  + "\n"+"Type de contrat :" + typeContrat + "\n"+ "Montant du salaire :" + salaire +"€" +"\n-----------------------------\n";
+				+  "\n" +"Date d'inscription : "+ date_inscription  + "\n"+"Type de contrat :" + typeContrat + "\n"+ "Montant du salaire :" + salaire +"€" ;
 	}
 	
-	public String gettoString()
-	{
-		return toString();
+//	public String gettoString()
+//	{
+//		return toString();
 		
-	}
+//	}
 
 
 	public String getNom() {
