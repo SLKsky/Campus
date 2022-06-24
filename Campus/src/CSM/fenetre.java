@@ -24,8 +24,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class fenetre extends JFrame implements ActionListener{
-
+public class fenetre extends JFrame implements ActionListener {
 
 	private JFrame frame;
 	protected JTextField txtPrenom;
@@ -53,12 +52,12 @@ public class fenetre extends JFrame implements ActionListener{
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				//try {
+				// try {
 				fenetre window = new fenetre();
 				window.frame.setVisible(true);
-				//} catch (Exception e) {
-				//	e.printStackTrace();
-				//}
+				// } catch (Exception e) {
+				// e.printStackTrace();
+				// }
 			}
 		});
 	}
@@ -120,20 +119,12 @@ public class fenetre extends JFrame implements ActionListener{
 		menuBar.add(mntmNewMenuItem_6);
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 
-
 		txtNom = new JTextField();
 		txtNom.setText("Nom");
 		txtNom.getText();
 		frame.getContentPane().add(txtNom);
 		txtNom.setColumns(10);
 		txtNom.setVisible(false);
-
-
-		button = new JButton("Promotion");
-		button.setName("Promotion");
-		frame.getContentPane().add(button);
-		button.addActionListener(this);
-		button.setVisible(false);
 
 		txtPrenom = new JTextField();
 		txtPrenom.setText("Prenom");
@@ -142,28 +133,12 @@ public class fenetre extends JFrame implements ActionListener{
 		txtPrenom.setColumns(10);
 		txtPrenom.setVisible(false);
 
-
-		txtSalaire = new JTextField();
-		txtSalaire.setText("Salaire");
-		txtSalaire.getText();
-		frame.getContentPane().add(txtSalaire);
-		txtSalaire.setColumns(10);
-		txtSalaire.setVisible(false);
-
 		txtDateDinscription = new JTextField();
 		txtDateDinscription.setText("Date d'inscription");
 		txtDateDinscription.getText();
 		frame.getContentPane().add(txtDateDinscription);
 		txtDateDinscription.setColumns(10);
 		txtDateDinscription.setVisible(false);
-
-		txtTypeDeContrat = new JTextField();
-		txtTypeDeContrat.setText("Type de contrat");
-		txtTypeDeContrat.getText();
-		frame.getContentPane().add(txtTypeDeContrat);
-		txtTypeDeContrat.setColumns(10);
-		txtTypeDeContrat.setVisible(false);
-
 
 		txtTlphone = new JTextField();
 		txtTlphone.setText("Téléphone");
@@ -179,6 +154,26 @@ public class fenetre extends JFrame implements ActionListener{
 		txtMail.setColumns(10);
 		txtMail.setVisible(false);
 
+		txtNomEntreprise = new JTextField();
+		txtNomEntreprise.setText("Nom de l'entreprise ");
+		txtNomEntreprise.getText();
+		frame.getContentPane().add(txtNomEntreprise);
+		txtNomEntreprise.setColumns(10);
+		txtNomEntreprise.setVisible(false);
+
+		txtTypeDeContrat = new JTextField();
+		txtTypeDeContrat.setText("Type de contrat");
+		txtTypeDeContrat.getText();
+		frame.getContentPane().add(txtTypeDeContrat);
+		txtTypeDeContrat.setColumns(10);
+		txtTypeDeContrat.setVisible(false);
+
+		txtSalaire = new JTextField();
+		txtSalaire.setText("Salaire");
+		txtSalaire.getText();
+		frame.getContentPane().add(txtSalaire);
+		txtSalaire.setColumns(10);
+		txtSalaire.setVisible(false);
 
 		txtdure = new JTextField();
 		txtdure.setText("Dure de la formation (en H)");
@@ -188,11 +183,11 @@ public class fenetre extends JFrame implements ActionListener{
 		txtdure.setVisible(false);
 
 		txtdureec = new JTextField();
-		txtdureec .setText("Duré totale au centre (en %)");
-		txtdureec .getText();
-		frame.getContentPane().add(txtdureec );
-		txtdureec .setColumns(10);
-		txtdureec .setVisible(false);
+		txtdureec.setText("Duré totale au centre (en %)");
+		txtdureec.getText();
+		frame.getContentPane().add(txtdureec);
+		txtdureec.setColumns(10);
+		txtdureec.setVisible(false);
 
 		txtacuelle = new JTextField();
 		txtacuelle.setText("Avancement de la formation");
@@ -208,19 +203,16 @@ public class fenetre extends JFrame implements ActionListener{
 		txtdip.setColumns(10);
 		txtdip.setVisible(false);
 
-		txtNomEntreprise = new JTextField();
-		txtNomEntreprise.setText("Nom de l'entreprise ");
-		txtNomEntreprise.getText();
-		frame.getContentPane().add(txtNomEntreprise);
-		txtNomEntreprise.setColumns(10);
-		txtNomEntreprise.setVisible(false);
+		button = new JButton("Promotion");
+		button.setName("Promotion");
+		frame.getContentPane().add(button);
+		button.addActionListener(this);
+		button.setVisible(false);
 
 		btnNewButton = new JButton("Valider");
 		frame.getContentPane().add(btnNewButton);
 		btnNewButton.addActionListener(this);
 		btnNewButton.setVisible(false);
-
-
 
 	}
 
@@ -243,45 +235,78 @@ public class fenetre extends JFrame implements ActionListener{
 		visibleadd(e, null);
 	}
 
-	public void visibleadd(EventObject e, JMenuItem mntmNewMenuItem_2)
-	{
-		if (((AbstractButton)e.getSource()).getText().equals("ADD"))
-		{
+	public void visibleadd(EventObject e, JMenuItem mntmNewMenuItem_2) {
+		if (((AbstractButton) e.getSource()).getText().equals("ADD")) {
 			frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 			affJlistoff();
-			//System.out.println(j);
+			// System.out.println(j);
 			visibleaddall();
 
-		}
-		else if (((AbstractButton)e.getSource()).getText().equals("JAVA"))
-		{
+		} else if (((AbstractButton) e.getSource()).getText().equals("JAVA")) {
 			GridBagLayout grid = new GridBagLayout();
 			frame.setLayout(grid);
 			visibleaddallfal();
-			affJlist();	
-		}
-		else if (((AbstractButton)e.getSource()).getName() == "Promotion")
-		{
+			affJlistJ(null);
+		} else if (((AbstractButton) e.getSource()).getName() == "Promotion") {
 			visiblepopup();
-		}
-		else if (((AbstractButton)e.getSource()).getText().equals("Valider"))
-		{
-			System.out.println(txtpromotion);
-			Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire,  txtMail, txtNomEntreprise, txtDateDinscription,txtTypeDeContrat);
-			Promotion  pr = new Promotion(txtpromotion, txtdure, txtdureec,txtacuelle);
+		} else if (((AbstractButton) e.getSource()).getText().equals("Valider")) {
+			// System.out.println(txtpromotion);
+			// Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
+			// 		txtDateDinscription, txtTypeDeContrat);
+			// Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
 
-			addinfo(ap);
-			addinofpro(pr, 0, 0, 0);
+			// addinfo(ap);
+			// addinofpro(pr, 0, 0, 0);
+			// affJlistJ(ap);
+			if (txtpromotion.equals("JAVA")) {
+				Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
+						txtDateDinscription, txtTypeDeContrat);
+				Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
 
-			if(txtpromotion.equals("JAVA"))
-			{
-				String o = "ghfjdklsmldkfjgnb";
+				addinfo(ap);
+				addinofpro(pr, 0, 0, 0);
+				affJlistJ(ap);
+			}
+			if (txtpromotion.equals("PHP")) {
+				Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
+						txtDateDinscription, txtTypeDeContrat);
+				Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
+
+				addinfo(ap);
+				addinofpro(pr, 0, 0, 0);
+				affJlistP(ap);
+			}
+			if (txtpromotion.equals("C")) {
+				Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
+						txtDateDinscription, txtTypeDeContrat);
+				Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
+
+				addinfo(ap);
+				addinofpro(pr, 0, 0, 0);
+				affJlistC(ap);
+			}
+			if (txtpromotion.equals("PYTHON")) {
+				Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
+						txtDateDinscription, txtTypeDeContrat);
+				Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
+
+				addinfo(ap);
+				addinofpro(pr, 0, 0, 0);
+				affJlistPy(ap);
+			}
+			if (txtpromotion.equals("SQL")) {
+				Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
+						txtDateDinscription, txtTypeDeContrat);
+				Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
+
+				addinfo(ap);
+				addinofpro(pr, 0, 0, 0);
+				affJlistSql(ap);
 			}
 		}
 	}
 
-	public void addinfo(Apprenants ap)
-	{
+	public void addinfo(Apprenants ap) {
 		ap.nom = txtNom.getText();
 		ap.prenom = txtPrenom.getText();
 		ap.salaire = txtSalaire.getText();
@@ -292,8 +317,7 @@ public class fenetre extends JFrame implements ActionListener{
 		ap.nom_entreprise = txtNomEntreprise.getText();
 	}
 
-	public void addinofpro(Promotion pr, int a , int b , int c)
-	{
+	public void addinofpro(Promotion pr, int a, int b, int c) {
 		System.out.println(txtpromotion);
 		pr.nomPromotion = txtpromotion;
 		pr.dureeTotalFormation = txtdure.getText();
@@ -302,8 +326,7 @@ public class fenetre extends JFrame implements ActionListener{
 		pr.promoDiplomante = txtdip.getText();
 	}
 
-	public void visibleaddall()
-	{
+	public void visibleaddall() {
 		txtNom.setVisible(true);
 		button.setVisible(true);
 		txtPrenom.setVisible(true);
@@ -314,16 +337,15 @@ public class fenetre extends JFrame implements ActionListener{
 		txtNomEntreprise.setVisible(true);
 		txtTlphone.setVisible(true);
 		txtdure.setVisible(true);
-		txtdureec .setVisible(true);
+		txtdureec.setVisible(true);
 		txtacuelle.setVisible(true);
 		txtdip.setVisible(true);
 		btnNewButton.setVisible(true);
 	}
 
-	public void visibleaddallfal()
-	{
+	public void visibleaddallfal() {
 		txtdure.setVisible(false);
-		txtdureec .setVisible(false);
+		txtdureec.setVisible(false);
 		txtacuelle.setVisible(false);
 		button.setVisible(false);
 		txtdip.setVisible(false);
@@ -341,10 +363,8 @@ public class fenetre extends JFrame implements ActionListener{
 		btnNewButton.setVisible(false);
 	}
 
-	public String visiblepopup()
-	{
+	public String visiblepopup() {
 		JFrame jFrame = new JFrame("Choisir la promo");
-
 
 		jFrame.setBounds(500, 300, 400, 150);
 
@@ -354,30 +374,25 @@ public class fenetre extends JFrame implements ActionListener{
 		panelLabel.add(jLabel);
 		ButtonGroup bg = new ButtonGroup();
 
-
 		JRadioButton j = new JRadioButton("JAVA");
 		j.setActionCommand("JAVA");
 		panel.add(j);
 		bg.add(j);
-
 
 		JRadioButton p = new JRadioButton("PHP");
 		p.setActionCommand("PHP");
 		panel.add(p);
 		bg.add(p);
 
-
 		JRadioButton c = new JRadioButton("C");
 		c.setActionCommand("C");
 		panel.add(c);
 		bg.add(c);
 
-
 		JRadioButton s = new JRadioButton("SQL");
 		s.setActionCommand("SQL");
 		panel.add(s);
 		bg.add(s);
-
 
 		JRadioButton py = new JRadioButton("PYTHON");
 		py.setActionCommand("PYTHON");
@@ -386,45 +401,34 @@ public class fenetre extends JFrame implements ActionListener{
 
 		JButton valide = new JButton("Valider");
 
-		jFrame.getContentPane().add(BorderLayout.NORTH,panel);
-		jFrame.getContentPane().add(BorderLayout.CENTER,panelLabel);
-		jFrame.getContentPane().add(BorderLayout.SOUTH,valide);
+		jFrame.getContentPane().add(BorderLayout.NORTH, panel);
+		jFrame.getContentPane().add(BorderLayout.CENTER, panelLabel);
+		jFrame.getContentPane().add(BorderLayout.SOUTH, valide);
 
 		jFrame.setVisible(true);
 
-
-
 		valide.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//call another method in the same class which will close this Jframe
-				String a =  bg.getSelection().getActionCommand();
+				// call another method in the same class which will close this Jframe
+				String a = bg.getSelection().getActionCommand();
 
-				if (a.equals("JAVA"))
-				{
+				if (a.equals("JAVA")) {
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "JAVA";
 
-				}
-				else if (a.equals("PHP"))
-				{
+				} else if (a.equals("PHP")) {
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "PHP";
 
-				}
-				else if (a.equals("C"))
-				{
+				} else if (a.equals("C")) {
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "C";
 
-				}
-				else if (a.equals("SQL"))
-				{
+				} else if (a.equals("SQL")) {
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "SQL";
 
-				}
-				else if(a.equals("PYTHON"))
-				{
+				} else if (a.equals("PYTHON")) {
 					button.setText(bg.getSelection().getActionCommand());
 					txtpromotion = "PYTHON";
 				}
@@ -436,31 +440,119 @@ public class fenetre extends JFrame implements ActionListener{
 
 	}
 
-	public void affJlist()
-	{
+	public void affJlistJ(Apprenants ap) {
 		JFrame frame = new JFrame();
-        Apprenants fly = new Apprenants("Nom", "Prenom", "DateDinscription", "TypeDeContrat", "NomEntreprise", "dureec", "dure","actu");
-        DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
-        demoList.addElement(fly);
-        JList<Apprenants> j = new JList<>(demoList);
-        Apprenants fly2 = new Apprenants("Nom", "Prenom", "DateDinscription", "TypeDeContrat", "NomEntreprise", "dureec", "dure","actu");
-        demoList.addElement(fly2);
-        System.out.println(fly2);
+		Apprenants fly = new Apprenants("Art", "Seb", "02/05/2022", "064897654", "N/A", "5 mois", "Stage", "N/A");
+		DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
+		demoList.addElement(ap);
+		demoList.addElement(fly);
+		JList<Apprenants> j = new JList<>(demoList);
+		Apprenants fly2 = new Apprenants("DO", "Kris", "01/05/2022", "065549875", "N/A", "5M mois", "Stage", "N/A");
+		demoList.addElement(fly2);
+		System.out.println(fly2);
 
-        // Object o = new Object();
-        j.setFont(new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int)(j.getFont().getSize() * 1.2)));
-        j.setPreferredSize(new Dimension(1900, 1000));
-        JPanel panel = new JPanel();
-        frame.setBounds(600, 400, 1920, 1080);
-        panel.add(j);
+		// Object o = new Object();
+		// j.setFont(
+		// 		new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int) (j.getFont().getSize() * 1.)));
+		j.setPreferredSize(new Dimension(1900, 1000));
+		JPanel panel = new JPanel();
+		frame.setBounds(600, 400, 1920, 1080);
+		panel.add(j);
 
-        frame.getContentPane().add(BorderLayout.CENTER, panel);
-        frame.setVisible(true);
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setVisible(true);
 	}
 
-	public void affJlistoff()
-	{
+	public void affJlistoff() {
 		j.setVisible(false);
+	}
+	public void affJlistP(Apprenants ap) {
+		JFrame frame = new JFrame();
+		Apprenants fly = new Apprenants("Art", "Seb", "02/05/2022", "064897654", "N/A", "5 mois", "Stage", "N/A");
+		DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
+		demoList.addElement(ap);
+		demoList.addElement(fly);
+		JList<Apprenants> p = new JList<>(demoList);
+		Apprenants fly2 = new Apprenants("DO", "Kris", "01/05/2022", "065549875", "N/A", "5M mois", "Stage", "N/A");
+		demoList.addElement(fly2);
+		System.out.println(fly2);
+
+		// Object o = new Object();
+		// j.setFont(
+		// 		new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int) (j.getFont().getSize() * 1.)));
+		j.setPreferredSize(new Dimension(1900, 1000));
+		JPanel panel = new JPanel();
+		frame.setBounds(600, 400, 1920, 1080);
+		panel.add(p);
+
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setVisible(true);
+	}
+	public void affJlistC(Apprenants ap) {
+		JFrame frame = new JFrame();
+		Apprenants fly = new Apprenants("Art", "Seb", "02/05/2022", "064897654", "N/A", "5 mois", "Stage", "N/A");
+		DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
+		demoList.addElement(ap);
+		demoList.addElement(fly);
+		JList<Apprenants> c = new JList<>(demoList);
+		Apprenants fly2 = new Apprenants("DO", "Kris", "01/05/2022", "065549875", "N/A", "5M mois", "Stage", "N/A");
+		demoList.addElement(fly2);
+		System.out.println(fly2);
+
+		// Object o = new Object();
+		// j.setFont(
+		// 		new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int) (j.getFont().getSize() * 1.)));
+		j.setPreferredSize(new Dimension(1900, 1000));
+		JPanel panel = new JPanel();
+		frame.setBounds(600, 400, 1920, 1080);
+		panel.add(c);
+
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setVisible(true);
+	}
+	public void affJlistPy(Apprenants ap) {
+		JFrame frame = new JFrame();
+		Apprenants fly = new Apprenants("Art", "Seb", "02/05/2022", "064897654", "N/A", "5 mois", "Stage", "N/A");
+		DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
+		demoList.addElement(ap);
+		demoList.addElement(fly);
+		JList<Apprenants> py = new JList<>(demoList);
+		Apprenants fly2 = new Apprenants("DO", "Kris", "01/05/2022", "065549875", "N/A", "5M mois", "Stage", "N/A");
+		demoList.addElement(fly2);
+		System.out.println(fly2);
+
+		// Object o = new Object();
+		// j.setFont(
+		// 		new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int) (j.getFont().getSize() * 1.)));
+		j.setPreferredSize(new Dimension(1900, 1000));
+		JPanel panel = new JPanel();
+		frame.setBounds(600, 400, 1920, 1080);
+		panel.add(py);
+
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setVisible(true);
+	}
+	public void affJlistSql(Apprenants ap) {
+		JFrame frame = new JFrame();
+		Apprenants fly = new Apprenants("Art", "Seb", "02/05/2022", "064897654", "N/A", "5 mois", "Stage", "N/A");
+		DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
+		demoList.addElement(ap);
+		demoList.addElement(fly);
+		JList<Apprenants> s = new JList<>(demoList);
+		Apprenants fly2 = new Apprenants("DO", "Kris", "01/05/2022", "065549875", "N/A", "5M mois", "Stage", "N/A");
+		demoList.addElement(fly2);
+		System.out.println(fly2);
+
+		// Object o = new Object();
+		// j.setFont(
+		// 		new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int) (j.getFont().getSize() * 1.)));
+		j.setPreferredSize(new Dimension(1900, 1000));
+		JPanel panel = new JPanel();
+		frame.setBounds(600, 400, 1920, 1080);
+		panel.add(s);
+
+		frame.getContentPane().add(BorderLayout.CENTER, panel);
+		frame.setVisible(true);
 	}
 
 }
