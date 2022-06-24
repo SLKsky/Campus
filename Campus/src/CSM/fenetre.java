@@ -3,26 +3,13 @@ package CSM;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.EventObject;
-
 import javax.swing.*;
-
 import java.awt.BorderLayout;
-
-import javax.swing.plaf.FontUIResource;
-import javax.swing.plaf.synth.SynthOptionPaneUI;
-
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
-import java.awt.Window;
-import java.awt.Button;
-import java.awt.Component;
 import java.awt.Dimension;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class fenetre extends JFrame implements ActionListener {
 
@@ -42,8 +29,6 @@ public class fenetre extends JFrame implements ActionListener {
 	protected String txtpromotion;
 	private JButton button;
 	private JButton btnNewButton;
-	private JRadioButton chckbxNewCheckBox;
-	private JTextField textField;
 	
 	DefaultListModel<Apprenants>demoList2 = new DefaultListModel<Apprenants>();
 	DefaultListModel<Apprenants> demoList1 = new DefaultListModel<>();
@@ -124,7 +109,7 @@ public class fenetre extends JFrame implements ActionListener {
 		JMenuItem mntmNewMenuItem_6 = new JMenuItem("PYTHON");
 		mntmNewMenuItem_6.setForeground(Color.LIGHT_GRAY);
 		mntmNewMenuItem_6.addActionListener(this);
-		mntmNewMenuItem_5.setName("PYTHON");
+		mntmNewMenuItem_6.setName("PYTHON");
 		menuBar.add(mntmNewMenuItem_6);
 		frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 
@@ -452,10 +437,12 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
+	
 	public void affJlistoff() {
 		
 		j.setVisible(false);
 	}
+	
 	public void affJlistP(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList5.addElement(ap);
@@ -467,6 +454,7 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
+	
 	public void affJlistC(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList4.addElement(ap);
@@ -478,6 +466,7 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
+	
 	public void affJlistPy(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList1.addElement(ap);
@@ -489,6 +478,7 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
+	
 	public void affJlistSql(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList2.addElement(ap);
