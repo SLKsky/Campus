@@ -3,6 +3,7 @@ package CSM;
 import java.awt.EventQueue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.EventObject;
 
 import javax.swing.*;
@@ -24,7 +25,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class fenetre extends JFrame implements ActionListener{
-	
+
 
 	private JFrame frame;
 	protected JTextField txtPrenom;
@@ -44,7 +45,7 @@ public class fenetre extends JFrame implements ActionListener{
 	private JButton btnNewButton;
 	private JRadioButton chckbxNewCheckBox;
 	private JTextField textField;
-	JList<String> j;
+	JList<String> j = new JList<>();
 
 	/**
 	 * Launch the application.
@@ -266,15 +267,16 @@ public class fenetre extends JFrame implements ActionListener{
 		else if (((AbstractButton)e.getSource()).getText().equals("Valider"))
 		{
 			System.out.println(txtpromotion);
-			Apprenants ap = new Apprenants(getName(), getName(), getName(), getName(), getName(), getTitle(), getWarningString(), getName(), ABORT);
+			Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire,  txtMail, txtNomEntreprise, txtDateDinscription,txtTypeDeContrat);
 			Promotion  pr = new Promotion(txtpromotion, txtdure, txtdureec,txtacuelle);
 
 			addinfo(ap);
 			addinofpro(pr, 0, 0, 0);
-			System.out.println(ap+ "\n" + pr);
-			
-			//TODO reussir a ajouter ap + pr a la Jlist correspondante 
-			j.add( ap );
+
+			if(txtpromotion.equals("JAVA"))
+			{
+				String o = "ghfjdklsmldkfjgnb";
+			}
 		}
 	}
 
@@ -436,25 +438,36 @@ public class fenetre extends JFrame implements ActionListener{
 
 	public void affJlist()
 	{
-		
-		j = new JList<>();
-		j.setFont(new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int)(j.getFont().getSize() * 1.7)));
-		JPanel panel = new JPanel();
-		frame.setBounds(200, 200, 450, 300);
+		JFrame frame = new JFrame();
+        Apprenants fly = new Apprenants(txtNom, txtPrenom, txtDateDinscription, txtTypeDeContrat, txtNomEntreprise, txtdureec, txtdure, txtacuelle);
+        DefaultListModel<Apprenants> demoList = new DefaultListModel<>();
+        demoList.addElement(fly);
+        JList<Apprenants> list = new JList<>(demoList);
+        Apprenants fly2 = new Apprenants(textField, textField, textField, textField, textField, textField, textField, textField);
+        demoList.addElement(fly2);
 
-		JScrollPane scroller = new JScrollPane(j);
 
-		scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-		scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+        // Object o = new Object();
+        j.setFont(new FontUIResource(j.getFont().getName(), j.getFont().getStyle(), (int)(j.getFont().getSize() * 1.7)));
+        j.setPreferredSize(new Dimension(200, 250));
+        JPanel panel = new JPanel();
+        frame.setBounds(600, 400, 250, 250);
 
-		panel.add(scroller);
-		j.setVisibleRowCount(7);
-		frame.getContentPane().add(j);
-		j.setVisible(true);
+        JScrollPane scroller = new JScrollPane(j);
+
+        scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        panel.add(scroller);
+
+        j.setVisibleRowCount(7);
+        frame.getContentPane().add(BorderLayout.CENTER, panel);
+        frame.setVisible(true);
 	}
-	
+
 	public void affJlistoff()
 	{
 		j.setVisible(false);
 	}
+
 }

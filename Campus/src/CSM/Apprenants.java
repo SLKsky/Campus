@@ -22,18 +22,24 @@ public class Apprenants  extends fenetre{
 	
 	
 	public Apprenants(String nom, String prenom, String date, String telephone , String mail, String nom_entreprise,
-			String date_inscription, String typeContrat, double salaire) {
+			String date_inscription, String typeContrat, String salaire) {
 		super();
-		this.nom = txtNom.getText();
-		this.prenom =  txtPrenom.getText();
-		this.telephone =  txtSalaire.getText();
-		this.mail =  txtMail.getText();
-		this.nom_entreprise =  txtNomEntreprise.getText();
-		this.date_inscription =  txtDateDinscription.getText();
-		this.typeContrat = txtTypeDeContrat.getText();
-		//this.salaire = Scan.scanInteger("Renseignez le salaire :");
+		this.nom = nom;
+		this.prenom = prenom;
+		this.salaire = salaire;
+		this.mail = mail;
+		this.nom_entreprise = nom_entreprise ;
+		this.date_inscription = date_inscription ;
+		this.typeContrat = typeContrat;
+
 		
 		
+	}
+
+	public Apprenants(JTextField txtNom, JTextField txtPrenom, JTextField txtSalaire, JTextField txtSalaire2,
+			JTextField txtMail, JTextField txtNomEntreprise, JTextField txtDateDinscription,
+			JTextField txtTypeDeContrat) {
+		// TODO Auto-generated constructor stub
 	}
 
 	@Override
