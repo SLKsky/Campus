@@ -5,11 +5,10 @@ import java.util.ArrayList;
 import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
 
-public class Promotion  {
+public class Promotion{
 	boolean restart = true;
 
 	// attributs 
-
 	String nomPromotion; 
 	//les durée sont exprimée en pourcentage ou en heure
 	String dureeTotalFormation; 
@@ -57,6 +56,8 @@ public class Promotion  {
 	
 	}
 
+	
+	
 	public String getNomPromotion() {
 		return nomPromotion;
 	}
@@ -86,57 +87,6 @@ public class Promotion  {
 	public void setDureeRealise(String dureeRealise) {
 		this.dureeRealise = dureeRealise;
 	}
-	
-	
-	//TODO faire le compte une foix les utilisataur afficher a la Jlist 
-//	public int getNbApprenants() {
-//		int i = 0;
-//		
-//		if (nomPromotion.equals("java") || nomPromotion.equals("JAVA"))
-//		{
-//			while(i <= java.size())
-//			{
-//				i++;
-//			}
-//			nbApprenants = i ;
-//			
-//		}
-//		else if (nomPromotion.equals("php") || nomPromotion.equals("PHP"))
-//		{
-//			while(i <= php.size())
-//			{
-//				i++;
-//			}
-//			nbApprenants = i ;
-//		}
-//		else if (nomPromotion.equals("sql") || nomPromotion.equals("SQL"))
-//		{
-//			while(i <= sql.size())
-//			{
-//				i++;
-//			}
-//			nbApprenants = i ;
-//		}
-//		else if (nomPromotion.equals("c") || nomPromotion.equals("C"))
-//		{
-//			while(i <= c.size())
-//			{
-//				i++;
-//			}
-//			nbApprenants = i ;
-//		}
-//		else if (nomPromotion.equals("python") || nomPromotion.equals("PYTHON"))
-//		{
-//			while(i <= python.size())
-//			{
-//				i++;
-//			}
-//			nbApprenants = i ;
-//		}
-//		return nbApprenants;
-//	}
-	
-	
 	public String getPromoDiplomante() {
 		return promoDiplomante;
 	}
