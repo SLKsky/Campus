@@ -18,6 +18,8 @@ public class Promotion{
 	//int nbApprenants; 
 	String promoDiplomante;
 	
+	
+	//utiliser que pour test 
 	//5 liste de promotion divers
 	ArrayList<Integer> java = new ArrayList<>();
 	ArrayList<Integer> php = new ArrayList<>();

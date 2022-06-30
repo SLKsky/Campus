@@ -36,9 +36,7 @@ public class Apprenants  extends fenetre{
 		
 	}
 
-	public Apprenants(JTextField txtNom, JTextField txtPrenom, JTextField txtSalaire, JTextField txtSalaire2,
-			JTextField txtMail, JTextField txtNomEntreprise, JTextField txtDateDinscription,
-			JTextField txtTypeDeContrat) {
+	public Apprenants() {
 		// TODO Auto-generated constructor stub
 	}
 

@@ -11,7 +11,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Dimension;
 
-public class fenetre extends JFrame implements ActionListener {
+public class f1 extends JFrame implements ActionListener {
 
 	private JFrame frame;
 	protected JTextField txtPrenom;
@@ -29,21 +29,21 @@ public class fenetre extends JFrame implements ActionListener {
 	protected String txtpromotion;
 	private JButton button;
 	private JButton btnNewButton;
-	
+
 	DefaultListModel<Apprenants>demoList2 = new DefaultListModel<Apprenants>();
 	DefaultListModel<Apprenants> demoList1 = new DefaultListModel<>();
 	DefaultListModel<Apprenants> demoList3 = new DefaultListModel<>();
 	DefaultListModel<Apprenants> demoList4 = new DefaultListModel<>();
 	DefaultListModel<Apprenants> demoList5 = new DefaultListModel<>();
-	
+
 	JList<String> j = new JList<>();
 	JList<Apprenants> py = new JList<>(demoList1);
 	JList<Apprenants> sql = new JList<>(demoList2);
 	JList<Apprenants> java = new JList<>(demoList3);
 	JList<Apprenants> c = new JList<>(demoList4);
 	JList<Apprenants> p = new JList<>(demoList5);
-	
-	
+
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -56,7 +56,7 @@ public class fenetre extends JFrame implements ActionListener {
 			}
 		});
 	}
-	
+
 	public fenetre() {
 
 		initialize();
@@ -120,7 +120,7 @@ public class fenetre extends JFrame implements ActionListener {
 		txtNom.setColumns(10);
 		txtNom.setVisible(false);
 
-		txtPrenom = new JTextField();
+		txtPrenom = new JTgetText()extField();
 		txtPrenom.setText("Prenom");
 		txtPrenom.getText();
 		frame.getContentPane().add(txtPrenom);
@@ -129,7 +129,7 @@ public class fenetre extends JFrame implements ActionListener {
 
 		txtDateDinscription = new JTextField();
 		txtDateDinscription.setText("Date d'inscription");
-		txtDateDinscription.getText();
+		txtDateDinscription.;
 		frame.getContentPane().add(txtDateDinscription);
 		txtDateDinscription.setColumns(10);
 		txtDateDinscription.setVisible(false);
@@ -230,22 +230,22 @@ public class fenetre extends JFrame implements ActionListener {
 	}
 
 	public void visibleadd(EventObject e) {
-		Apprenants ap = new Apprenants(txtNom, txtPrenom, txtSalaire, txtSalaire, txtMail, txtNomEntreprise,
-				txtDateDinscription, txtTypeDeContrat);
+		Apprenants ap = new Apprenants();
 		Promotion pr = new Promotion(txtpromotion, txtdure, txtdureec, txtacuelle);
-		
+
 		if (((AbstractButton) e.getSource()).getText().equals("ADD")) {
 			frame.getContentPane().setLayout(new GridLayout(0, 2, 0, 0));
 			affJlistoff();
 			visibleaddall();
+
 		} else if (((AbstractButton) e.getSource()).getName() == "JAVA") {
 			GridBagLayout grid = new GridBagLayout();
 			frame.setLayout(grid);
 			if(txtpromotion.equals("JAVA"))
 			{
-				
-			addinfo(ap);
-			affJlistJ(ap);
+
+				addinfo(ap);
+				affJlistJ(ap);
 			}
 		} 
 		else if (((AbstractButton) e.getSource()).getName() == "PHP") {
@@ -253,8 +253,8 @@ public class fenetre extends JFrame implements ActionListener {
 			frame.setLayout(grid);
 			if(txtpromotion.equals("PHP"))
 			{
-			addinfo(ap);
-			affJlistP(ap);
+				addinfo(ap);
+				affJlistP(ap);
 			}
 		} 
 		else if (((AbstractButton) e.getSource()).getName() == "C") {
@@ -262,8 +262,8 @@ public class fenetre extends JFrame implements ActionListener {
 			frame.setLayout(grid);
 			if(txtpromotion.equals("C"))
 			{
-			addinfo(ap);
-			affJlistC(ap);
+				addinfo(ap);
+				affJlistC(ap);
 			}
 		} 
 		else if (((AbstractButton) e.getSource()).getName() == "SQL") {
@@ -271,8 +271,8 @@ public class fenetre extends JFrame implements ActionListener {
 			frame.setLayout(grid);
 			if(txtpromotion.equals("SQL"))
 			{
-			addinfo(ap);
-			affJlistSql(ap);
+				addinfo(ap);
+				affJlistSql(ap);
 			}
 		} 
 		else if (((AbstractButton) e.getSource()).getName() == "PYTHON") {
@@ -280,8 +280,8 @@ public class fenetre extends JFrame implements ActionListener {
 			frame.setLayout(grid);
 			if(txtpromotion.equals("PYTHON"))
 			{
-			addinfo(ap);
-			affJlistPy(ap);
+				addinfo(ap);
+				affJlistPy(ap);
 			}
 		} 
 		else if (((AbstractButton) e.getSource()).getName() == "Promotion") {
@@ -437,12 +437,12 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
-	
+
 	public void affJlistoff() {
-		
+
 		j.setVisible(false);
 	}
-	
+
 	public void affJlistP(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList5.addElement(ap);
@@ -454,7 +454,7 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
-	
+
 	public void affJlistC(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList4.addElement(ap);
@@ -466,7 +466,7 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
-	
+
 	public void affJlistPy(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList1.addElement(ap);
@@ -478,7 +478,7 @@ public class fenetre extends JFrame implements ActionListener {
 		frame.getContentPane().add(BorderLayout.CENTER, panel);
 		frame.setVisible(true);
 	}
-	
+
 	public void affJlistSql(Apprenants ap) {
 		JFrame frame = new JFrame();
 		demoList2.addElement(ap);
